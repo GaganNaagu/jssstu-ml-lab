@@ -1,32 +1,32 @@
 # JSSSTU Machine Learning Lab
 
-1. (a) Visualize the n-dimensional data usinh 3D surface plots.
-   (b) Write a program to implement the Best First Search Algorithm.
+1. (a) Visualize the n-dimensional data using Scatter plots.
+   (b) Write a program to implement Hill Climbing Algorithm.
 
-2. (a) Visualize the n-dimensional data using contour plots.
+2. (a) Visualize the n-dimensional data using 3D surface plots.
+   (b) Write a program to implement the Best First Search (BFS) algorithm.
+
+3. (a) Visualize the n-dimensional data using contour plots.
    (b) Write a program to implement the A* algorithm.
 
-3. (a) Visualize the n-dimensional data using heat-map
+4. (a) Visualize the n-dimensional data using heat-map.
    (b) Write a program to implement Min-Max algorithm.
 
-4. (a) Visualize the n-dimensional data usinh Box-plot.
+5. (a) Visualize the n-dimensional data using Box-plot.
    (b) Write a program to implement Alpha-beta pruning algorithm.
 
-5. Write a program to develop the Naive Bayes classifier on Titanic dataset.
+6. Write a program to develop the Naive Bayes classifier on Titanic dataset. `[Uses sklearn Naive Bayes]`
 
-6. Write a program to develop the KNN classifier with Euclidean distance for the k value as 3 based on split up of training and testing dataset as 70-30 on Glass dataset.
+7. Write a program to develop the KNN classifier with Euclidean distance and Manhattan distance for the k values as 3 based on split up of training and testing dataset as 70-30 on Glass dataset. `[Uses sklearn KNN]`
 
-7. Write a program to develop the KNN classifier with Manhattan distance for the k value as 5 based on split up of training and testing dataset as 80-20 on Fruit dataset.
+8. Write a program to perform unsupervised K-means clustering techniques on Iris dataset. `[Uses sklearn K-Means]`
 
-8. Write a program to perform unsupervised K-means clustering technique on Iris dataset.
+9. Write a program to perform agglomerative clustering based on single-linkage, complete linkage criteria. `[Uses sklearn Agglomerative Clustering]`
 
-9. Write a program to perform agglomeratiove clustering based on single-linkage and complete-linkage criteria.
+10. Write a program to develop Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) algorithms. `[Uses sklearn PCA & LDA]`
 
-10. Write a program to develop Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) algorithms.
+11. Write a Program to develop simple single layer perceptron to implement AND, OR Boolean functions.
 
-11. (a) Visualize the n-dimensional data using Scatter plots.
-    (b) Write a program to implement Hill Climbing Algorithm.
+12. Write a program to develop the KNN classifier with Euclidean distance for the k value as 3 based on split up of training and testing dataset as 70-30 on Glass dataset. `[Uses sklearn KNN]`
 
-12. Write a program to develop the KNN classifier with Euclidean distance and Manhattan distance for the k values as 3 based on split up of training and testing dataset as 70-30 on Glass dataset.
-
-13. Write a Program to develop simple single layer perceptron to implement AND, OR Boolean functions.
+13. Write a program to develop the KNN classifier with Manhattan distance for the k value as 5 based on split up of training and testing dataset as 80-20 on Fruit dataset. `[Uses sklearn KNN]`

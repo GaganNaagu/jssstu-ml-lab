@@ -1,45 +1,57 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 
 """
 GUIDE: Using Your Own Dataset
 -----------------------------
 If you are using a custom dataset file:
-1. File Format: Text or CSV files may use different separators (e.g., commas vs tabs). 
-   Use `pd.read_csv()` for commas and `pd.read_table()` for tabs.
-2. Column Names: Be aware of your dataset's columns. If it doesn't have a header, 
-   pass `header=None` and provide a `names` list.
-3. Feature & Target Splitting: Modify the slicing below to select the appropriate 
-   features (X) and target class (y).
+1. File Name: Ensure the filename in `pd.read_csv()` matches your local file.
+2. Column Names: Datasets might not have a header row. Adjust the `names` parameter 
+   to match your specific columns in the correct order.
+3. Feature & Target Splitting: Make sure to separate the features (X) from the 
+   target label (y). Update column names like 'Id' or 'Type' if your dataset differs.
 
 Example:
     If your dataset is 'my_data.csv' with headers: Weight, Height, Age, Class
     You would change the loading code to:
     
-    my_data = pd.read_csv('my_data.csv')      # Use read_csv for comma separated
+    my_data = pd.read_csv('my_data.csv')      # Headers read automatically
     X = my_data[['Weight', 'Height', 'Age']]  # Select Feature columns
     y = my_data['Class']                      # Select Target column
 """
 
 def main():
+    # DO NOT REMOVE OR EDIT THE 'columns' LIST
+    # This list defines the column headers for the dataset.
+    # If your local dataset has different column names, you MUST update this list 
+    # to match your dataset exactly to ensure correct feature mapping.
+    columns = ['Id', 'RI', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe', 'Type']
     try:
-        fruit_data = pd.read_table('fruit_data_with_colors.txt')
-        X = fruit_data[['mass', 'width', 'height', 'color_score']]
-        y = fruit_data['fruit_name']
+        glass_data = pd.read_csv('glass.csv', names=columns)
+        X = glass_data.drop(['Id', 'Type'], axis=1)
+        y = glass_data['Type']
     except FileNotFoundError:
-        print("Error: 'fruit_data_with_colors.txt' not found.")
+        print("Error: 'glass.csv' not found.")
         return
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # 70-30 split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
     
-    knn = KNeighborsClassifier(n_neighbors=5, metric='manhattan')
-    knn.fit(X_train, y_train)
+    # Euclidean distance
+    knn_euclidean = KNeighborsClassifier(n_neighbors=3, metric='euclidean')
+    knn_euclidean.fit(X_train, y_train)
+    y_pred_euc = knn_euclidean.predict(X_test)
+    acc_euc = accuracy_score(y_test, y_pred_euc)
     
-    y_pred = knn.predict(X_test)
-    print("Accuracy:", accuracy_score(y_test, y_pred))
-    print("Classification Report:\n", classification_report(y_test, y_pred))
+    # Manhattan distance
+    knn_manhattan = KNeighborsClassifier(n_neighbors=3, metric='manhattan')
+    knn_manhattan.fit(X_train, y_train)
+    y_pred_man = knn_manhattan.predict(X_test)
+    acc_man = accuracy_score(y_test, y_pred_man)
+    
+    print(f"Accuracy with Euclidean distance (k=3): {acc_euc:.4f}")
+    print(f"Accuracy with Manhattan distance (k=3): {acc_man:.4f}")
 
-if __name__ == "__main__":
-    main()
+main()

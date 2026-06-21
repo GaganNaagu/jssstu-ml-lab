@@ -1,33 +1,18 @@
 import math
 
-MAX, MIN = 1000, -1000
-
-def alpha_beta_minimax(depth, nodeIndex, maximizingPlayer, values, alpha, beta, h):
+def minimax(depth, nodeIndex, isMax, scores, h):
     if depth == h:
-        return values[nodeIndex]
+        return scores[nodeIndex]
     
-    if maximizingPlayer:
-        best = MIN
-        for i in range(2):
-            val = alpha_beta_minimax(depth + 1, nodeIndex * 2 + i, False, values, alpha, beta, h)
-            best = max(best, val)
-            alpha = max(alpha, best)
-            if beta <= alpha:
-                break
-        return best
+    if isMax:
+        return max(minimax(depth + 1, nodeIndex * 2, False, scores, h),
+                   minimax(depth + 1, nodeIndex * 2 + 1, False, scores, h))
     else:
-        best = MAX
-        for i in range(2):
-            val = alpha_beta_minimax(depth + 1, nodeIndex * 2 + i, True, values, alpha, beta, h)
-            best = min(best, val)
-            beta = min(beta, best)
-            if beta <= alpha:
-                break
-        return best
+        return min(minimax(depth + 1, nodeIndex * 2, True, scores, h),
+                   minimax(depth + 1, nodeIndex * 2 + 1, True, scores, h))
 
-if __name__ == "__main__":
-    values = [3, 5, 6, 9, 1, 2, 0, -1]
-    h = int(math.log(len(values), 2))
-    
-    optimal_value = alpha_beta_minimax(0, 0, True, values, MIN, MAX, h)
-    print("The optimal value is:", optimal_value)
+scores = [3, 5, 2, 9, 12, 5, 23, 23]
+treeDepth = int(math.log(len(scores), 2))
+
+optimal_value = minimax(0, 0, True, scores, treeDepth)
+print("The optimal value is:", optimal_value)

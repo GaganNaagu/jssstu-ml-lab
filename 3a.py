@@ -1,13 +1,15 @@
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.datasets import load_iris
 
+# Load Iris dataset
 iris = load_iris()
-df = pd.DataFrame(iris.data, columns=iris.feature_names)
+X = iris.data
 
-plt.figure(figsize=(8, 6))
-# Correlation heatmap is a great way to visualize n-dimensional data
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
-plt.title('Heat-map of Iris Data Correlation')
+# Use 2 features for Contour plot (tricontourf) with 3rd feature as Z
+plt.figure()
+cp = plt.tricontourf(X[:, 0], X[:, 1], X[:, 2], levels=14, cmap='viridis')
+plt.colorbar(cp)
+plt.title('Contour Plot of Iris Data (Sepal L vs Sepal W vs Petal L)')
+plt.xlabel(iris.feature_names[0])
+plt.ylabel(iris.feature_names[1])
 plt.show()

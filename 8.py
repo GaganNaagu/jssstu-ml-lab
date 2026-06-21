@@ -19,5 +19,4 @@ def main():
     plt.ylabel('Sepal width')
     plt.show()
 
-if __name__ == "__main__":
-    main()
+main()

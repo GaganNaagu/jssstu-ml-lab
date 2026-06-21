@@ -1,18 +1,24 @@
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 
-# Load Iris dataset
-iris = load_iris()
-X = iris.data
+def main():
+    iris = load_iris()
+    X = iris.data
+    y = iris.target
+    
+    plt.figure(figsize=(8, 6))
+    
+    # Scatter plot of the first two dimensions (Sepal Length vs Sepal Width)
+    scatter = plt.scatter(X[:, 0], X[:, 1], c=y, cmap='viridis', s=50, alpha=0.8)
+    
+    plt.title('Scatter Plot of Iris Data (Sepal Length vs Sepal Width)')
+    plt.xlabel(iris.feature_names[0])
+    plt.ylabel(iris.feature_names[1])
+    
+    # Add a legend
+    handles, _ = scatter.legend_elements()
+    plt.legend(handles, iris.target_names, title="Classes")
+    
+    plt.show()
 
-# Use 3 features for 3D surface (trisurf) plot
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-surf = ax.plot_trisurf(X[:, 0], X[:, 1], X[:, 2], cmap='viridis', edgecolor='none')
-
-plt.title('3D Surface Plot of Iris Data (3 Features)')
-ax.set_xlabel(iris.feature_names[0])
-ax.set_ylabel(iris.feature_names[1])
-ax.set_zlabel(iris.feature_names[2])
-fig.colorbar(surf)
-plt.show()
+main()

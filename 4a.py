@@ -1,11 +1,13 @@
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.datasets import load_iris
 
 iris = load_iris()
-data = [iris.data[:, i] for i in range(iris.data.shape[1])]
+df = pd.DataFrame(iris.data, columns=iris.feature_names)
 
 plt.figure(figsize=(8, 6))
-plt.boxplot(data, vert=True, patch_artist=True, tick_labels=iris.feature_names)
-plt.title('Box-plot of Iris Dataset Features')
-plt.ylabel('Centimeters')
+# Correlation heatmap is a great way to visualize n-dimensional data
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Heat-map of Iris Data Correlation')
 plt.show()

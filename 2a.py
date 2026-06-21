@@ -5,11 +5,14 @@ from sklearn.datasets import load_iris
 iris = load_iris()
 X = iris.data
 
-# Use 2 features for Contour plot (tricontourf) with 3rd feature as Z
-plt.figure()
-cp = plt.tricontourf(X[:, 0], X[:, 1], X[:, 2], levels=14, cmap='viridis')
-plt.colorbar(cp)
-plt.title('Contour Plot of Iris Data (Sepal L vs Sepal W vs Petal L)')
-plt.xlabel(iris.feature_names[0])
-plt.ylabel(iris.feature_names[1])
+# Use 3 features for 3D surface (trisurf) plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+surf = ax.plot_trisurf(X[:, 0], X[:, 1], X[:, 2], cmap='viridis', edgecolor='none')
+
+plt.title('3D Surface Plot of Iris Data (3 Features)')
+ax.set_xlabel(iris.feature_names[0])
+ax.set_ylabel(iris.feature_names[1])
+ax.set_zlabel(iris.feature_names[2])
+fig.colorbar(surf)
 plt.show()

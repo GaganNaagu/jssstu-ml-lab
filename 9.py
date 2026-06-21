@@ -32,5 +32,4 @@ def main():
     print("Single Linkage Labels:", labels_single[:10])
     print("Complete Linkage Labels:", labels_complete[:10])
 
-if __name__ == "__main__":
-    main()
+main()

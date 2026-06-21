@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, classification_report
 
 """
 GUIDE: Using Your Own Dataset
@@ -36,23 +36,13 @@ def main():
         print("Error: 'glass.csv' not found.")
         return
     
-    # 70-30 split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
     
-    # Euclidean distance
-    knn_euclidean = KNeighborsClassifier(n_neighbors=3, metric='euclidean')
-    knn_euclidean.fit(X_train, y_train)
-    y_pred_euc = knn_euclidean.predict(X_test)
-    acc_euc = accuracy_score(y_test, y_pred_euc)
+    knn = KNeighborsClassifier(n_neighbors=3, metric='euclidean')
+    knn.fit(X_train, y_train)
     
-    # Manhattan distance
-    knn_manhattan = KNeighborsClassifier(n_neighbors=3, metric='manhattan')
-    knn_manhattan.fit(X_train, y_train)
-    y_pred_man = knn_manhattan.predict(X_test)
-    acc_man = accuracy_score(y_test, y_pred_man)
-    
-    print(f"Accuracy with Euclidean distance (k=3): {acc_euc:.4f}")
-    print(f"Accuracy with Manhattan distance (k=3): {acc_man:.4f}")
+    y_pred = knn.predict(X_test)
+    print("Accuracy:", accuracy_score(y_test, y_pred))
+    print("Classification Report:\n", classification_report(y_test, y_pred))
 
-if __name__ == "__main__":
-    main()
+main()
