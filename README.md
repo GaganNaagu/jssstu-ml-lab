@@ -23,3 +23,10 @@
 9. Write a program to perform agglomeratiove clustering based on single-linkage and complete-linkage criteria.
 
 10. Write a program to develop Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) algorithms.
+
+11. (a) Visualize the n-dimensional data using Scatter plots.
+    (b) Write a program to implement Hill Climbing Algorithm.
+
+12. Write a program to develop the KNN classifier with Euclidean distance and Manhattan distance for the k values as 3 based on split up of training and testing dataset as 70-30 on Glass dataset.
+
+13. Write a Program to develop simple single layer perceptron to implement AND, OR Boolean functions.
