@@ -1,12 +1,38 @@
 # Program 5: Box-plots & Alpha-Beta Pruning
 
-## 5(a): Box-plot (Whisker Plot)
-**What it does:** Displays the distribution of data based on a five-number summary: minimum, first quartile (Q1), median, third quartile (Q3), and maximum.
-**What to look for:** **Outliers!** Dots that fall outside the "whiskers" are anomalies. Also, look at the median line inside the box to see where the "average" data sits.
-**Real-World Example:** Analyzing the salaries of a company. The box shows where 50% of the employees sit, while the outliers instantly highlight the CEO's massive salary.
+## Part A: Visualize n-dimensional data using Box-plots
 
-## 5(b): Alpha-Beta Pruning
-**Logic / Algorithm:** An optimization technique for the Min-Max algorithm. It stops evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move. 
-- **Alpha:** Best already explored option for Maximizer.
-- **Beta:** Best already explored option for Minimizer.
-**Real-World Example:** IBM's Deep Blue chess computer. By ignoring branch moves that are obviously terrible (pruning), the computer can look 10 moves ahead instead of just 5 in the same amount of time.
+### 1. Conceptual Overview
+A **Box-plot (or Whisker Plot)** is a standardized way of displaying the distribution of data based on a five-number mathematical summary. Unlike scatter plots that show every single point, box-plots abstract the data to show its statistical spread.
+
+### 2. What to Look For (Interpretation)
+When reading a box-plot, an examiner expects you to identify:
+1.  **The Box (Interquartile Range - IQR):** Contains the middle 50% of the data (from Q1 to Q3).
+2.  **The Median (Line inside the box):** The exact mathematical middle of the dataset.
+3.  **The Whiskers (Lines extending from the box):** Represent the upper and lower 25% of the data, excluding outliers.
+4.  **Outliers (Dots outside the whiskers):** Data points that are statistically abnormal. They sit significantly far away from the rest of the data.
+
+### 3. Real-World Application
+*   **Corporate Analytics:** Analyzing the salaries of a company. The box shows where the vast majority of regular employees sit. The massive outlier dot at the very top instantly highlights the CEO's salary, proving it is a statistical anomaly compared to the rest of the workforce.
+
+---
+
+## Part B: Alpha-Beta Pruning Algorithm
+
+### 1. Conceptual Overview
+**Alpha-Beta Pruning** is an optimization technique specifically designed for the **Min-Max algorithm**. 
+In complex games like Chess, the game tree is so massively huge that evaluating every single possible future move takes too long. Alpha-Beta Pruning solves this by "pruning" (ignoring/cutting off) branches of the tree that **cannot possibly influence the final decision**. 
+
+### 2. Step-by-Step Logic
+It maintains two values as it explores the tree:
+*   **Alpha ($\alpha$):** The best (highest) value that the Maximizer can guarantee so far. (Initializes at $-\infty$)
+*   **Beta ($\beta$):** The best (lowest) value that the Minimizer can guarantee so far. (Initializes at $+\infty$)
+
+**The Pruning Rule:** If at any point the algorithm finds that $\beta \le \alpha$, it immediately stops evaluating that branch. Why? Because the opponent will simply never allow you to reach that part of the tree anyway, so calculating it is a waste of time!
+
+### 3. Key Concepts to Mention in Exams
+*   **Efficiency:** Alpha-Beta pruning does *not* change the final decision of the Min-Max algorithm. It simply arrives at the exact same mathematically perfect decision much, much faster.
+*   **Node Ordering:** The efficiency of pruning relies heavily on the order nodes are checked. If you check the best moves first, you can prune almost half the entire tree!
+
+### 4. Real-World Application
+*   **IBM's Deep Blue:** The chess supercomputer that famously defeated human world champion Garry Kasparov. By aggressively pruning terrible moves early, the computer was able to calculate 10 to 14 moves deep into the future in fractions of a second.
