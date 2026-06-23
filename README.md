@@ -26,7 +26,3 @@
 10. Write a program to develop Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) algorithms. `[Uses sklearn PCA & LDA]`
 
 11. Write a Program to develop simple single layer perceptron to implement AND, OR Boolean functions.
-
-12. Write a program to develop the KNN classifier with Euclidean distance for the k value as 3 based on split up of training and testing dataset as 70-30 on Glass dataset. `[Uses sklearn KNN]`
-
-13. Write a program to develop the KNN classifier with Manhattan distance for the k value as 5 based on split up of training and testing dataset as 80-20 on Fruit dataset. `[Uses sklearn KNN]`
