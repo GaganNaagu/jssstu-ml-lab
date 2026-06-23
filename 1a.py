@@ -19,4 +19,3 @@ handles, _ = scatter.legend_elements()
 plt.legend(handles, iris.target_names, title="Classes")
 
 plt.show()
-

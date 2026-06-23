@@ -30,4 +30,3 @@ labels_complete = agg_complete.fit_predict(X)
 
 print("Single Linkage Labels:", labels_single[:10])
 print("Complete Linkage Labels:", labels_complete[:10])
-

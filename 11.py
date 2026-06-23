@@ -46,4 +46,3 @@ perceptron_or.train(X, y_or)
 print("OR Function Predictions:")
 for x in X:
     print(f"{x} -> {perceptron_or.predict(x)}")
-

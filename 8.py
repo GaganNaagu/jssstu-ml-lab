@@ -17,4 +17,3 @@ plt.title('K-Means Clustering on Iris Dataset')
 plt.xlabel('Sepal length')
 plt.ylabel('Sepal width')
 plt.show()
-

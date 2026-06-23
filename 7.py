@@ -53,4 +53,3 @@ acc_man = accuracy_score(y_test, y_pred_man)
 
 print(f"Accuracy with Euclidean distance (k=3): {acc_euc:.4f}")
 print(f"Accuracy with Manhattan distance (k=3): {acc_man:.4f}")
-

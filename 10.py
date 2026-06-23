@@ -28,4 +28,3 @@ plt.title('LDA of Iris dataset')
 plt.legend()
 
 plt.show()
-
