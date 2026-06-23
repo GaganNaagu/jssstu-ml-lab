@@ -26,3 +26,28 @@ The algorithm calculates:
 ### 5. Real-World Application
 *   **Email Spam Filters:** The most famous use case! The filter looks at words like "Lottery", "Viagra", and "Prince". It assumes the presence of each word is independent and calculates: *Given these specific words are in the email, what is the probability this email is Spam?*
 *   **Sentiment Analysis:** Reading a Twitter post and instantly classifying if the customer is "Happy" or "Angry" based on the probability of the words used.
+
+
+
+## Execution Output & Interpretations
+
+### 6.py: Naive Bayes
+**Output:**
+```text
+Accuracy: 0.7674418604651163
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.80      0.81      0.80       126
+           1       0.72      0.71      0.72        89
+
+    accuracy                           0.77       215
+   macro avg       0.76      0.76      0.76       215
+weighted avg       0.77      0.77      0.77       215
+```
+
+**How to understand this output:**
+* **Accuracy (0.767 or ~77%):** The model correctly predicted the survival outcome 77% of the time.
+* **Precision:** When the model predicted someone survived (1), it was right 72% of the time.
+* **Recall:** Out of all the people who *actually* survived, the model successfully identified 71% of them.
+* **F1-Score:** This is a combination (harmonic mean) of Precision and Recall. It gives a balanced view of the model's performance, especially if classes are imbalanced.

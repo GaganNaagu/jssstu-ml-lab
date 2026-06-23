@@ -25,3 +25,23 @@ How do you measure the distance between two clusters if they both contain multip
 
 ### 5. Real-World Application
 *   **Evolutionary Biology / Taxonomy:** Building the "Tree of Life" (phylogeny). You start with individual animal species at the bottom. You group lions and tigers into 'felines', then group felines and canines into 'carnivores', merging upwards until you reach the common ancestor of all mammals.
+
+
+
+## Execution Output & Interpretations
+
+### 9.py: Agglomerative Clustering
+**Output:**
+```text
+Single Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
+Complete Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
+```
+
+**Graph:**
+![9.py](../outputs/9.png)
+
+**How to understand this graph (Dendrogram):**
+* **What it shows:** A Dendrogram is a tree-like diagram that records exactly how the algorithm grouped data points together step-by-step.
+* **The X-Axis:** Represents the individual data points.
+* **The Y-Axis (Height):** Represents the *distance* or *dissimilarity* between the clusters. The higher up two branches merge, the less similar they are.
+* **Interpretation:** To form actual clusters, you draw an imaginary horizontal line across the dendrogram at a specific height. The number of vertical lines you intersect is the number of clusters you get. Single-linkage measures the shortest distance between clusters, while complete-linkage measures the furthest distance.

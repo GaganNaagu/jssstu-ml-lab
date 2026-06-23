@@ -20,3 +20,18 @@ We feed the algorithm the Sepal Length, Sepal Width, Petal Length, and Petal Wid
 
 ### 5. Real-World Application
 *   **Marketing Customer Segmentation:** A supermarket has millions of rows of purchasing data. They run K-Means with $K=4$. The algorithm automatically discovers 4 distinct groups: "Bargain Hunters", "Luxury Buyers", "Bulk Buyers", and "Health Enthusiasts". The marketing team can now send targeted emails to each specific cluster.
+
+
+
+## Execution Output & Interpretations
+
+### 8.py & 8o.py: K-Means Clustering
+**Graphs:**
+![8.py](../outputs/8.png)
+![8o.py](../outputs/8o.png)
+
+**How to understand these graphs:**
+* **What they show:** K-Means is an *unsupervised* algorithm. It groups data into `K` distinct clusters based on feature similarity.
+* **The Clusters (Colors):** Each color represents a newly formed cluster. The algorithm decided these points belong together.
+* **The Centroids (often marked with an 'X' or distinct dot):** These are the exact mathematical center-points of each cluster. 
+* **Interpretation:** You are looking to see if the algorithm successfully identified natural groupings in the data. If the clusters are well-separated and make logical sense, K-Means did a good job! The output arrays represent which cluster (0, 1, or 2) each data point was assigned to.

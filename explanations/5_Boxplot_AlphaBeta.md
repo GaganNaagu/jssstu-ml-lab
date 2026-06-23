@@ -36,3 +36,26 @@ It maintains two values as it explores the tree:
 
 ### 4. Real-World Application
 *   **IBM's Deep Blue:** The chess supercomputer that famously defeated human world champion Garry Kasparov. By aggressively pruning terrible moves early, the computer was able to calculate 10 to 14 moves deep into the future in fractions of a second.
+
+
+
+## Execution Output & Interpretations
+
+### 5a.py: Box Plot
+**Graph:**
+![5a.py](../outputs/5a.png)
+
+**How to understand this graph:**
+* **What it shows:** A box-plot (often resembling candlesticks in finance) shows the statistical distribution of data. 
+* **The Box:** Represents the Interquartile Range (IQR) – the middle 50% of your data. The bottom edge is the 25th percentile, and the top is the 75th percentile.
+* **The Line inside the Box:** This is the **Median** (the exact mathematical middle of the dataset).
+* **The Whiskers (Lines extending out):** These represent the upper and lower 25% of the data, showing the typical range.
+* **The Dots (Outliers):** These are individual data points that are statistically abnormal. They sit significantly far away from the rest of the data. 
+* **Interpretation:** It tells you if your data is skewed, tightly packed, or if there are crazy anomalies (outliers) that might mess up your machine learning model.
+
+### 5b.py: Alpha-Beta Pruning
+**Output:**
+```text
+The optimal value is: 5
+```
+**Interpretation:** Similar to the Min-Max output, this shows the guaranteed best score for the Maximizer. However, by using alpha-beta pruning, the algorithm skipped evaluating large chunks of the game tree that were proven to be irrelevant, arriving at the answer much faster.

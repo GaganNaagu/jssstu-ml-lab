@@ -45,3 +45,8 @@ new_centroids = np.array(new_centroids)
 * **`expanded_x = X[:, np.newaxis]`**: Reshapes the data to allow computing the distance between all 150 points and all 3 centroids simultaneously without any loops.
 * **`euc_dist = np.linalg.norm(...)`**: Calculates the Euclidean distance across the feature axis.
 * **`labels = np.argmin(euc_dist, axis=1)`**: Assigns each point to the centroid with the minimum distance.
+
+
+
+## Execution Output & Interpretations
+*(See 8_KMeans.md for outputs and interpretations, as they cover the same concept and the graphs are generated successfully there.)*

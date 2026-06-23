@@ -39,3 +39,25 @@ Examiners love asking about the pitfalls of Hill Climbing. Always mention these 
 ### 4. Real-World Application
 *   **Antenna Tuning / Signal Processing:** Turning a radio dial or a TV antenna. You make small adjustments; if the static gets quieter, you keep moving in that direction. Once moving in *any* direction makes the static worse, you stop, assuming you have the best signal.
 *   **Gradient Descent:** The underlying concept is identical to Gradient Descent in Neural Networks (which is just hill climbing in reverse—trying to find the lowest valley of error instead of the highest peak of accuracy).
+
+
+
+## Execution Output & Interpretations
+
+### 1a.py: Scatter Plot
+**Graph:**
+![1a.py](../outputs/1a.png)
+
+**How to understand this graph:**
+* **What it shows:** A scatter plot displays individual data points on a 2D coordinate system. Here, the X and Y axes represent two features of the Iris dataset (Sepal Length and Sepal Width).
+* **Colors:** Different colors represent different classes (species of Iris flowers).
+* **Interpretation:** By looking at the spread and overlap of colors, you can easily see if certain classes are naturally grouped together or if they are mixed. If the colors are well-separated, a machine learning model will have an easy time classifying them!
+
+### 1b.py: Hill Climbing
+**Output:**
+```text
+Starting state: -5.5718
+Local maximum found at x = 2.0282
+Objective value: 3.9992
+```
+**Interpretation:** The algorithm starts at a random negative coordinate and iteratively takes steps uphill. It successfully finds the peak (local maximum) at x ≈ 2.02, where the mathematical function reaches its highest value of ≈ 3.99.

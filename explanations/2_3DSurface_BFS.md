@@ -36,3 +36,24 @@ A **3D Surface Plot** visualizes the relationship between three variables. It pl
 ### 4. Real-World Application
 *   **Basic GPS Routing:** When computational power is extremely limited, calculating the absolute perfect route might take too long. A GPS might use a greedy approach to quickly output a "good enough" route by constantly forcing you to take roads that head in the general compass direction of your destination.
 *   **Video Game AI:** A zombie in a game trying to reach the player. It doesn't calculate a complex maze route; it just continuously moves in the straight-line direction of the player until it hits a wall.
+
+
+
+## Execution Output & Interpretations
+
+### 2a.py: 3D Surface Plot
+**Graph:**
+![2a.py](../outputs/2a.png)
+
+**How to understand this graph:**
+* **What it shows:** A 3D surface plot visualizes a mathematical function with two inputs (X and Y on the horizontal plane) and one output (Z on the vertical axis). 
+* **Colors & Shape:** The colors map to the height (Z-value). Darker/cooler colors are usually the valleys (minima) and brighter/warmer colors are the peaks (maxima).
+* **Interpretation:** Imagine this as a mountainous landscape. Optimization algorithms (like gradient descent) are essentially trying to find the lowest valley or highest peak by "walking" along this terrain.
+
+### 2b.py: BFS Algorithm
+**Output:**
+```text
+Goal Reached!
+Path traversed: ['S', 'A', 'D', 'G']
+```
+**Interpretation:** The output shows the exact sequence of nodes visited by the Breadth-First Search algorithm to reach the Goal ('G') from the Start ('S'). BFS explores level-by-level, ensuring it finds the shortest path in terms of the number of edges.

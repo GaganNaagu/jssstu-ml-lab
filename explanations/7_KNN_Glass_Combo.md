@@ -30,3 +30,19 @@ The dataset contains columns of chemical elements (Sodium, Magnesium, Iron, Alum
 
 ### 6. Real-World Application
 *   **Netflix / Amazon Recommendations:** "People who bought this also bought..." If your purchasing history is mathematically very "close" to 5 other users, Amazon looks at what those 5 neighbors bought and recommends it to you.
+
+
+
+## Execution Output & Interpretations
+
+### 7.py: K-Nearest Neighbors (Glass Dataset)
+**Output:**
+```text
+Accuracy with Euclidean distance (k=3): 0.6462
+Accuracy with Manhattan distance (k=3): 0.6462
+```
+
+**How to understand this output:**
+* **What happened:** The algorithm tried to classify types of glass based on their chemical properties by finding the 3 "closest" known examples (K=3).
+* **Euclidean vs Manhattan:** These are two different ways of measuring "distance" between data points. Euclidean is the direct straight-line distance, while Manhattan is grid-like (like navigating city blocks).
+* **Interpretation:** In this specific run, both the Manhattan and Euclidean distance formulas performed identically (~64.6% accuracy) for this dataset.

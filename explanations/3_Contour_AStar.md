@@ -42,3 +42,27 @@ $$f(n) = g(n) + h(n)$$
 ### 4. Real-World Application
 *   **Google Maps / Routing:** Calculating the absolute fastest driving route. The $g(n)$ is the miles you have already driven, and the $h(n)$ is the straight-line distance to your destination. 
 *   **Network Routing:** Finding the shortest path to send a packet of data across a global network of servers while minimizing latency.
+
+
+
+## Execution Output & Interpretations
+
+### 3a.py: Contour Plot
+**Graph:**
+![3a.py](../outputs/3a.png)
+
+**How to understand this graph:**
+* **What it shows:** A contour plot is a 2D representation of a 3D surface, just like a topographic map used by hikers.
+* **The Rings/Lines:** Each line connects points of equal Z-value (height). 
+* **Interpretation:** 
+  * If the rings are packed very closely together, the slope is extremely steep. 
+  * If the rings are far apart, the terrain is relatively flat. 
+  * The center of a series of concentric rings represents a local minimum (valley bottom) or maximum (mountain peak).
+
+### 3b.py: A* Search
+**Output:**
+```text
+A* Path: ['S', 'A', 'C', 'G']
+Total Cost: 9
+```
+**Interpretation:** A* search smartly uses heuristics (estimated distance to goal) to find the absolute best path. The output confirms the shortest path found is S -> A -> C -> G, and tells us the total accumulated cost (distance/effort) to travel that path is 9.

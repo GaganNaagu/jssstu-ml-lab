@@ -22,3 +22,17 @@ In the real world, datasets often have hundreds or thousands of columns (feature
 
 ### 4. Key Exam Difference
 If an examiner asks for the main difference: **PCA is unsupervised and maximizes overall data variance. LDA is supervised and maximizes class separation.**
+
+
+
+## Execution Output & Interpretations
+
+### 10.py: PCA & LDA Dimensionality Reduction
+**Graph:**
+![10.py](../outputs/10.png)
+
+**How to understand these graphs:**
+* **What it shows:** Both PCA and LDA are trying to squash a multi-dimensional dataset down to just 2 dimensions so we can visualize it on a flat screen.
+* **PCA (Principal Component Analysis):** This is *unsupervised*. It doesn't care about the class labels; it simply looks for the angles where the data is spread out the most (maximum variance).
+* **LDA (Linear Discriminant Analysis):** This is *supervised*. It actively uses the class labels and tries to find the angles that maximize the distance *between* different classes while minimizing the spread *within* each class.
+* **Interpretation:** Look at the separation of colors. Usually, LDA (the right plot) will show much clearer boundaries between classes because it explicitly tries to separate them, whereas PCA (the left plot) just looks for raw data spread.

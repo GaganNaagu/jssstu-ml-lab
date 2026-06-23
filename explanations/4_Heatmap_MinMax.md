@@ -40,3 +40,23 @@ The algorithm assumes both players are playing perfectly.
 
 ### 4. Real-World Application
 *   **Classic Board Games AI:** The fundamental backbone of computers playing Tic-Tac-Toe, Checkers, Connect Four, and Chess. The computer looks ahead at all possible outcomes, assumes you will play your best counter-move, and selects the path that minimizes your ability to hurt them.
+
+
+
+## Execution Output & Interpretations
+
+### 4a.py: Heatmap
+**Graph:**
+![4a.py](../outputs/4a.png)
+
+**How to understand this graph:**
+* **What it shows:** A heatmap uses colors to represent the numerical values inside a 2D matrix or table.
+* **The Colors:** A color bar on the side acts as the legend. Typically, bright/warm colors mean higher values (or strong positive correlation), and dark/cool colors mean lower values (or negative correlation).
+* **Interpretation:** Instead of staring at a giant table of numbers, you can instantly spot hotspots, trends, or heavily correlated variables just by looking at the colored blocks.
+
+### 4b.py: Min-Max Algorithm
+**Output:**
+```text
+The optimal value is: 12
+```
+**Interpretation:** The algorithm evaluates a game tree assuming both players play perfectly. It determined that if the Maximizing player makes the best possible moves, they are guaranteed to secure a score of at least 12, regardless of what the Minimizing opponent does.

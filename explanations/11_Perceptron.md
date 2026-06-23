@@ -23,3 +23,29 @@ In this program, we train the Perceptron to act like a computer microchip.
 
 ### 5. Real-World Application
 *   **Basic Approval Algorithms:** A simple banking algorithm for student loans. Input 1: Credit Score (High Weight). Input 2: Existing Debt (Negative Weight). If the calculated sum crosses the bias threshold, the output is 1 (Loan Approved).
+
+
+
+## Execution Output & Interpretations
+
+### 11.py: Perceptron Logic Gates
+**Output:**
+```text
+AND Function Predictions:
+[0 0] -> 0
+[0 1] -> 0
+[1 0] -> 0
+[1 1] -> 1
+
+-----------------------
+
+OR Function Predictions:
+[0 0] -> 0
+[0 1] -> 1
+[1 0] -> 1
+[1 1] -> 1
+```
+
+**How to understand this output:**
+* **What happened:** A Perceptron (the absolute simplest form of a neural network) was trained to mimic basic computer logic gates.
+* **Interpretation:** The output perfectly matches the truth tables for AND and OR gates. This proves that a single perceptron is capable of learning linearly separable mathematical boundaries!
