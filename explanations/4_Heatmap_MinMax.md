@@ -60,3 +60,16 @@ The algorithm assumes both players are playing perfectly.
 The optimal value is: 12
 ```
 **Interpretation:** The algorithm evaluates a game tree assuming both players play perfectly. It determined that if the Maximizing player makes the best possible moves, they are guaranteed to secure a score of at least 12, regardless of what the Minimizing opponent does.
+
+
+
+## Deep Dive Code Breakdown
+
+### 4a.py: Heatmap Variables
+*   `sns.heatmap(data, annot=True, cmap='coolwarm', fmt=".2f")`:
+    *   `annot=True`: Forces the heatmap to physically write the underlying numerical value directly onto each colored square.
+    *   `fmt=".2f"`: String formatting. It tells the annotator to round the numbers to a floating-point with exactly 2 decimal places.
+    *   `cmap='coolwarm'`: The perfect color map for diverging data (like correlations ranging from -1 to 1). The middle is white/neutral, negative numbers fade to dark blue, and positive numbers fade to dark red.
+
+### 4b.py: Min-Max Variables
+*   `is_maximizing_player`: A boolean flag (True/False) passed down the recursion tree. When True, it's the Max player's turn, so the algorithm uses `max()` to pick the highest score. When False, it's the Min player's turn, so it uses `min()` to pick the lowest score.

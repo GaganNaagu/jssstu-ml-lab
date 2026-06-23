@@ -46,3 +46,13 @@ Accuracy with Manhattan distance (k=3): 0.6462
 * **What happened:** The algorithm tried to classify types of glass based on their chemical properties by finding the 3 "closest" known examples (K=3).
 * **Euclidean vs Manhattan:** These are two different ways of measuring "distance" between data points. Euclidean is the direct straight-line distance, while Manhattan is grid-like (like navigating city blocks).
 * **Interpretation:** In this specific run, both the Manhattan and Euclidean distance formulas performed identically (~64.6% accuracy) for this dataset.
+
+
+
+## Deep Dive Code Breakdown
+
+### 7.py: KNN Variables
+*   `KNeighborsClassifier(n_neighbors=3, metric='euclidean')`:
+    *   `n_neighbors=3`: This is the 'K' in KNN. When given an unknown piece of glass, it will look at the 3 closest known examples and hold a majority vote to decide the class. (Never use an even number like 4, to avoid ties!)
+    *   `metric='euclidean'`: Defines how "closeness" is measured. Euclidean calculates the straight-line hypotenuse distance (like a crow flies). 
+    *   `metric='manhattan'`: The alternative used in the script. It calculates distance on a strict grid (like walking around city blocks, hence "Manhattan").

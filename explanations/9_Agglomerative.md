@@ -45,3 +45,14 @@ Complete Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
 * **The X-Axis:** Represents the individual data points.
 * **The Y-Axis (Height):** Represents the *distance* or *dissimilarity* between the clusters. The higher up two branches merge, the less similar they are.
 * **Interpretation:** To form actual clusters, you draw an imaginary horizontal line across the dendrogram at a specific height. The number of vertical lines you intersect is the number of clusters you get. Single-linkage measures the shortest distance between clusters, while complete-linkage measures the furthest distance.
+
+
+
+## Deep Dive Code Breakdown
+
+### 9.py: Agglomerative Variables
+*   `linkage(X, 'single')` vs `linkage(X, 'complete')`:
+    *   `linkage` is the mathematical rule used to decide the distance between two distinct clusters.
+    *   `'single'`: Looks at the distance between the *two closest points* in the two clusters. (Tends to create long, chain-like clusters).
+    *   `'complete'`: Looks at the distance between the *two furthest points* in the two clusters. (Tends to create tight, compact clusters).
+*   `AgglomerativeClustering(n_clusters=3)`: Tells the algorithm to keep merging clusters up the tree until exactly 3 distinct clusters remain.

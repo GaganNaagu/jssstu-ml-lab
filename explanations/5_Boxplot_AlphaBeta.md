@@ -59,3 +59,18 @@ It maintains two values as it explores the tree:
 The optimal value is: 5
 ```
 **Interpretation:** Similar to the Min-Max output, this shows the guaranteed best score for the Maximizer. However, by using alpha-beta pruning, the algorithm skipped evaluating large chunks of the game tree that were proven to be irrelevant, arriving at the answer much faster.
+
+
+
+## Deep Dive Code Breakdown
+
+### 5a.py: Box Plot Variables
+*   `sns.boxplot(x='species', y='sepal_length', data=df, palette='Set2')`:
+    *   `data=df`: Tells Seaborn to pull variables directly from a Pandas DataFrame.
+    *   `palette='Set2'`: A predefined set of aesthetic pastel colors. Other palettes include `'pastel'`, `'muted'`, `'deep'`, or `'dark'`.
+    *   *Note on the "candles":* Unlike financial candlestick charts (which show Open, High, Low, Close over time), a boxplot shows purely statistical spread (25th percentile, Median, 75th percentile).
+
+### 5b.py: Alpha-Beta Variables
+*   `alpha`: Passed down the recursive tree. It keeps track of the absolute highest score the Maximizer has secured so far along the current path.
+*   `beta`: Keeps track of the absolute lowest score the Minimizer has secured so far.
+*   `if beta <= alpha: break`: The actual pruning trigger. If the lowest score the Minimizer can force (`beta`) becomes worse than or equal to a score the Maximizer already secured elsewhere (`alpha`), the Minimizer will simply never allow play to reach this branch, so we stop evaluating it (`break`).

@@ -66,3 +66,17 @@ A* Path: ['S', 'A', 'C', 'G']
 Total Cost: 9
 ```
 **Interpretation:** A* search smartly uses heuristics (estimated distance to goal) to find the absolute best path. The output confirms the shortest path found is S -> A -> C -> G, and tells us the total accumulated cost (distance/effort) to travel that path is 9.
+
+
+
+## Deep Dive Code Breakdown
+
+### 3a.py: Contour Plot Variables
+*   `plt.contourf(X, Y, Z, levels=50, cmap='inferno')`: 
+    *   `contourf`: The 'f' stands for fill. It draws contour lines and fills the gaps between them with solid color.
+    *   `levels=50`: Tells the plot to draw 50 distinct color bands (elevation levels). The higher this number, the smoother the gradient looks.
+    *   `cmap='inferno'`: A color map that goes from black/dark purple to glowing white/yellow, making the "hot" peaks stand out clearly.
+
+### 3b.py: A* Search Variables
+*   `heapq.heappush(open_list, (f_score, start))`: A* doesn't use a normal list or queue; it uses a **Priority Queue** (min-heap). `heapq` automatically sorts the queue every time you add an item. 
+*   `f_score`: This is the priority weight. It's the sum of `g` (actual cost from start to current) + `h` (estimated cost from current to goal). The Priority Queue always pops the node with the lowest `f_score` first, guaranteeing the smartest search.

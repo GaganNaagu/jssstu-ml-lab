@@ -50,3 +50,8 @@ new_centroids = np.array(new_centroids)
 
 ## Execution Output & Interpretations
 *(See 8_KMeans.md for outputs and interpretations, as they cover the same concept and the graphs are generated successfully there.)*
+
+
+
+## Deep Dive Code Breakdown
+*(See 8_KMeans.md for deep dive code breakdowns, as both cover K-Means parameters.)*

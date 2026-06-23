@@ -51,3 +51,13 @@ weighted avg       0.77      0.77      0.77       215
 * **Precision:** When the model predicted someone survived (1), it was right 72% of the time.
 * **Recall:** Out of all the people who *actually* survived, the model successfully identified 71% of them.
 * **F1-Score:** This is a combination (harmonic mean) of Precision and Recall. It gives a balanced view of the model's performance, especially if classes are imbalanced.
+
+
+
+## Deep Dive Code Breakdown
+
+### 6.py: Naive Bayes Variables
+*   `GaussianNB()`: The exact type of Naive Bayes model being used. "Gaussian" means it mathematically assumes that the continuous features (like Age or Fare) follow a normal, bell-curve distribution.
+*   `train_test_split(X, y, test_size=0.3, random_state=42)`: 
+    *   `test_size=0.3`: Tells the function to hide 30% of the dataset to be used later as a final exam for the model. The model is trained on the remaining 70%.
+    *   `random_state=42`: Seeds the random number generator. The data is shuffled randomly before splitting, but using a seed ensures it shuffles the *exact same way* every time you run the code. (42 is just a classic programmer's joke number).

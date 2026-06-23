@@ -57,3 +57,14 @@ Goal Reached!
 Path traversed: ['S', 'A', 'D', 'G']
 ```
 **Interpretation:** The output shows the exact sequence of nodes visited by the Breadth-First Search algorithm to reach the Goal ('G') from the Start ('S'). BFS explores level-by-level, ensuring it finds the shortest path in terms of the number of edges.
+
+
+
+## Deep Dive Code Breakdown
+
+### 2a.py: 3D Plot Variables
+*   `np.meshgrid(x, y)`: To plot a 3D surface, you can't just use 1D lines of X and Y. You need a full 2D grid covering the entire floor (the X-Y plane). `meshgrid` multiplies the X and Y arrays to create this flat grid, which the Z-function then pulls up into a 3D shape.
+*   `ax.plot_surface(X, Y, Z, cmap='plasma')`: The function that stretches a colored skin over your X, Y, and Z points. The `'plasma'` cmap paints the lowest points purple and the highest points yellow.
+
+### 2b.py: BFS Variables
+*   `queue = deque([start])`: `deque` stands for Double-Ended Queue. BFS requires a First-In, First-Out (FIFO) structure. While a normal Python list can act like a queue using `.pop(0)`, it is extremely slow for large lists. `deque.popleft()` is blazingly fast and is the industry standard for BFS.

@@ -36,3 +36,12 @@ If an examiner asks for the main difference: **PCA is unsupervised and maximizes
 * **PCA (Principal Component Analysis):** This is *unsupervised*. It doesn't care about the class labels; it simply looks for the angles where the data is spread out the most (maximum variance).
 * **LDA (Linear Discriminant Analysis):** This is *supervised*. It actively uses the class labels and tries to find the angles that maximize the distance *between* different classes while minimizing the spread *within* each class.
 * **Interpretation:** Look at the separation of colors. Usually, LDA (the right plot) will show much clearer boundaries between classes because it explicitly tries to separate them, whereas PCA (the left plot) just looks for raw data spread.
+
+
+
+## Deep Dive Code Breakdown
+
+### 10.py: PCA & LDA Variables
+*   `PCA(n_components=2)`: The `n_components` parameter forces the algorithm to squish the 4-dimensional Iris data down to exactly 2 dimensions (components) so we can plot it on an X-Y graph.
+*   `pca.fit_transform(X)`: A convenience function that does two steps at once. First, it `fit`s (does the heavy math to find the principal components of variance), and then it `transform`s (actually multiplies the data to project it onto the new 2D plane).
+*   `lda.fit_transform(X, y)`: Notice LDA requires `y` (the answers/labels) as a parameter, while PCA only requires `X`. This is because PCA is blind (unsupervised), while LDA actively looks at the answers to figure out how to best pull the distinct classes apart (supervised).

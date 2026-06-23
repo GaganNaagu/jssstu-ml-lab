@@ -61,3 +61,21 @@ Local maximum found at x = 2.0282
 Objective value: 3.9992
 ```
 **Interpretation:** The algorithm starts at a random negative coordinate and iteratively takes steps uphill. It successfully finds the peak (local maximum) at x ≈ 2.02, where the mathematical function reaches its highest value of ≈ 3.99.
+
+
+
+## Deep Dive Code Breakdown
+
+### 1a.py: Scatter Plot Variables
+*   `iris.target`: This is the exact answer key (labels) for the dataset. For the Iris dataset, `target` is an array of 0s, 1s, and 2s representing the three flower species (Setosa, Versicolor, Virginica).
+*   `scatter = plt.scatter(...)` Parameters:
+    *   `X[:, 0], X[:, 1]`: The first two arguments are the X-axis and Y-axis coordinates. `X[:, 0]` means "all rows, 0th column" (Sepal Length), and `X[:, 1]` is the 1st column (Sepal Width).
+    *   `c=y`: The "color" parameter. By passing the `iris.target` array (`y`), it assigns a unique color to the 0s, 1s, and 2s automatically.
+    *   `cmap='viridis'`: The Color Map. Matplotlib maps the numbers 0, 1, 2 to a color gradient. `'viridis'` is a default color-blind friendly map that goes from dark purple to bright yellow. Other possible values: `'plasma'`, `'inferno'`, `'magma'`, `'coolwarm'`.
+    *   `s=50`: Size of the scatter dots. Increasing this makes the dots larger.
+    *   `alpha=0.8`: The transparency level, ranging from 0.0 (invisible) to 1.0 (solid). 0.8 makes dots slightly transparent so you can see if multiple dots overlap.
+
+### 1b.py: Hill Climbing Variables
+*   `def objective(x):`: The mathematical function creating the "hill" we are trying to climb.
+*   `step_size`: How far the algorithm "steps" horizontally (on the X-axis) to check if the height (Y-axis) increases.
+*   `max_iterations`: A safety cutoff to stop the loop from running forever if it gets stuck on a flat surface.

@@ -49,3 +49,13 @@ OR Function Predictions:
 **How to understand this output:**
 * **What happened:** A Perceptron (the absolute simplest form of a neural network) was trained to mimic basic computer logic gates.
 * **Interpretation:** The output perfectly matches the truth tables for AND and OR gates. This proves that a single perceptron is capable of learning linearly separable mathematical boundaries!
+
+
+
+## Deep Dive Code Breakdown
+
+### 11.py: Perceptron Variables
+*   `linear_output = np.dot(X, self.weights) + self.bias`: This is the absolute core math of all Neural Networks.
+    *   `np.dot(X, self.weights)`: The dot product. It multiplies every input feature by its assigned importance (weight) and sums them all together.
+    *   `self.bias`: A constant number added to shift the result left or right. It's like the y-intercept (`b`) in the line equation `y = mx + b`.
+*   `y_pred = np.where(linear_output >= 0, 1, 0)`: The "Step" Activation Function. It acts as the brain's decision gate. `np.where` checks a condition: if the math output is >= 0, the neuron "fires" and predicts a 1. Otherwise, it stays quiet and predicts a 0.

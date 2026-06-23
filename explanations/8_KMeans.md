@@ -35,3 +35,15 @@ We feed the algorithm the Sepal Length, Sepal Width, Petal Length, and Petal Wid
 * **The Clusters (Colors):** Each color represents a newly formed cluster. The algorithm decided these points belong together.
 * **The Centroids (often marked with an 'X' or distinct dot):** These are the exact mathematical center-points of each cluster. 
 * **Interpretation:** You are looking to see if the algorithm successfully identified natural groupings in the data. If the clusters are well-separated and make logical sense, K-Means did a good job! The output arrays represent which cluster (0, 1, or 2) each data point was assigned to.
+
+
+
+## Deep Dive Code Breakdown
+
+### 8.py & 8o.py: K-Means Variables
+*   `KMeans(n_clusters=3, random_state=42)`:
+    *   `n_clusters=3`: This is the 'K' in K-Means. You must hardcode how many groups you want the algorithm to divide the data into.
+*   `plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, c='red')`:
+    *   `centroids[:, 0]`: The X-coordinates of the calculated center-points of the clusters.
+    *   `marker='x'`: Changes the shape of the point from a standard dot to an 'X' so it is easily distinguished from normal data points.
+    *   `s=200`: Makes the 'X' massive (size 200) so it's highly visible.
