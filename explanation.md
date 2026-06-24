@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: -9.2901
-Local maximum found at x = 2.0099
-Objective value: 3.9999
+Starting state: 7.3660
+Local maximum found at x = 1.9660
+Objective value: 3.9988
 ```
 
 ## `2a.py`
@@ -85,10 +85,10 @@ The optimal path taken is: [0, 1, 3, 5]
 
 ### Output
 ```text
-Accuracy: 0.7541899441340782
+Accuracy: 0.7877094972067039
 Confusion Matrix:
- [[99 12]
- [32 36]]
+ [[90 18]
+ [20 51]]
 ```
 
 ## `7.py`
