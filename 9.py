@@ -13,7 +13,6 @@ print("Proximity Matrix (Euclidean Distance):")
 print(pd.DataFrame(dist_matrix).round(2))
 print()
 
-# Linkage for Dendrograms
 linked_single = linkage(X, 'single')
 linked_complete = linkage(X, 'complete')
 

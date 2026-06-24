@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: -2.2459
-Local maximum found at x = 1.9541
-Objective value: 3.9979
+Starting state: -4.2259
+Local maximum found at x = 1.9741
+Objective value: 3.9993
 ```
 
 ## `2a.py`
