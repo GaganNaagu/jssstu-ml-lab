@@ -8,13 +8,11 @@ X = load_iris().data[:6]
 
 print("Proximity Matrix:\n", np.round(squareform(pdist(X, 'euclidean')), 2))
 
-plt.figure(figsize=(12, 5))
-
-plt.subplot(1, 2, 1)
+# plt.subplot(1, 2, 1)
 dendrogram(linkage(X, 'single'))
 plt.title('Single-Linkage')
 
-plt.subplot(1, 2, 2)
+# plt.subplot(1, 2, 2)
 dendrogram(linkage(X, 'complete'))
 plt.title('Complete-Linkage')
 
