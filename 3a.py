@@ -6,7 +6,6 @@ iris = load_iris()
 X = iris.data
 
 # Step 2: Setup Canvas
-plt.figure(figsize=(8, 6))
 
 # Step 3: THE PLOT SPECIFIC CODE GOES HERE
 cp = plt.tricontourf(X[:, 0], X[:, 1], X[:, 2], levels=14, cmap='viridis')

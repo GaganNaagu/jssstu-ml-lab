@@ -7,7 +7,6 @@ X = iris.data
 y = iris.target
 
 # Step 2: Setup Canvas
-plt.figure(figsize=(8, 6))
 
 # Step 3: THE PLOT SPECIFIC CODE GOES HERE
 scatter = plt.scatter(X[:, 0], X[:, 1], c=y, cmap='viridis', s=50, alpha=0.8)

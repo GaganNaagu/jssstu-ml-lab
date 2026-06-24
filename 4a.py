@@ -8,7 +8,6 @@ iris = load_iris()
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
 
 # Step 2: Setup Canvas
-plt.figure(figsize=(8, 6))
 
 # Step 3: THE PLOT SPECIFIC CODE GOES HERE
 sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
