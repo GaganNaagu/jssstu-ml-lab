@@ -4,10 +4,9 @@ from sklearn.datasets import load_iris
 
 def kmeans(X, K, max_iters=100):
   np.random.seed(42)
-  centroids = X[np.random.choice(X.shape[0], K, replace=False)]
+  centroids = X[:K]
 
   for _ in range(max_iters):
-    # Assign each data point to the nearest centroid
     expanded_x = X[:, np.newaxis]
     euc_dist = np.linalg.norm(expanded_x - centroids, axis=2)
     labels = np.argmin(euc_dist, axis=1)
@@ -27,7 +26,6 @@ X = load_iris().data
 K = 3
 labels, centroids = kmeans(X, K)
 
-# Output just the graph, no console prints
 plt.scatter(X[:, 0], X[:, 1], c=labels)
 plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', color='red', s=200)
 plt.xlabel('Sepal Length')
