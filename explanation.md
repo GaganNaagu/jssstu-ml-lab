@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: 4.2523
-Local maximum found at x = 1.9523
-Objective value: 3.9977
+Starting state: -9.2901
+Local maximum found at x = 2.0099
+Objective value: 3.9999
 ```
 
 ## `2a.py`
@@ -85,10 +85,10 @@ The optimal path taken is: [0, 1, 3, 5]
 
 ### Output
 ```text
-Accuracy: 0.8212290502793296
+Accuracy: 0.7541899441340782
 Confusion Matrix:
- [[94 12]
- [20 53]]
+ [[99 12]
+ [32 36]]
 ```
 
 ## `7.py`
@@ -110,16 +110,7 @@ Accuracy with Manhattan distance (k=3): 0.6462
 ## `8o.py`
 
 ### Output
-```text
-Labels: [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
- 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
- 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 2 2 2 2 0 2 2 2 2
- 2 2 0 0 2 2 2 2 0 2 0 2 0 2 2 0 0 2 2 2 2 2 0 2 2 2 2 0 2 2 2 0 2 2 2 0 2
- 2 0]
-Centroids: [[5.9016129  2.7483871  4.39354839 1.43387097]
- [5.006      3.428      1.462      0.246     ]
- [6.85       3.07368421 5.74210526 2.07105263]]
-```
+*No output printed to console.*
 
 ### Graph
 ![8o.py](outputs/8o.png)
