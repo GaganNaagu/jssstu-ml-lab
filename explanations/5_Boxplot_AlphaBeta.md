@@ -74,3 +74,7 @@ The optimal value is: 5
 *   `alpha`: Passed down the recursive tree. It keeps track of the absolute highest score the Maximizer has secured so far along the current path.
 *   `beta`: Keeps track of the absolute lowest score the Minimizer has secured so far.
 *   `if beta <= alpha: break`: The actual pruning trigger. If the lowest score the Minimizer can force (`beta`) becomes worse than or equal to a score the Maximizer already secured elsewhere (`alpha`), the Minimizer will simply never allow play to reach this branch, so we stop evaluating it (`break`).
+
+
+### Important Notes
+- The leaf values evaluated for the Alpha-Beta Pruning tree in 5b.py from left to right are: 3, 5, 6, 9, 1, 2, 0, -1.

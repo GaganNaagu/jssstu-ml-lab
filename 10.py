@@ -13,10 +13,8 @@ X_pca = pca.fit_transform(X)
 lda = LDA(n_components=2)
 X_lda = lda.fit_transform(X, y)
 
-# Helper function to modularize the repetitive plotting
 def plot_scatter(data, title, position):
     plt.subplot(1, 2, position)
-    # c=y automatically colors the points based on their class (0, 1, or 2)
     plt.scatter(data[:, 0], data[:, 1], c=y)
     plt.title(title)
 

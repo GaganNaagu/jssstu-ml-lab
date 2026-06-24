@@ -79,3 +79,7 @@ Objective value: 3.9992
 *   `def objective(x):`: The mathematical function creating the "hill" we are trying to climb.
 *   `step_size`: How far the algorithm "steps" horizontally (on the X-axis) to check if the height (Y-axis) increases.
 *   `max_iterations`: A safety cutoff to stop the loop from running forever if it gets stuck on a flat surface.
+
+
+### Important Notes
+- The objective function used for Hill Climbing in 1b.py is (x) = -x^2 + 4x (a parabola facing down, with its maximum at x=2).

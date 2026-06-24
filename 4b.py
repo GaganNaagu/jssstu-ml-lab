@@ -26,7 +26,6 @@ def minimax(node, depth, maximizing_player):
                 min_path = [node.value] + child_path
         return min_value, min_path
 
-# Example tree structure
 game_tree = TreeNode(0, [
     TreeNode(1, [TreeNode(3), TreeNode(12)]),
     TreeNode(4, [TreeNode(8), TreeNode(2)])

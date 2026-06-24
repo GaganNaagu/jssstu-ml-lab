@@ -4,7 +4,6 @@ class TreeNode:
         self.children = children if children else []
 
 def alpha_beta(node, depth, alpha, beta, is_maximizing):
-    # Base case: reached max depth or a leaf node
     if depth == 0 or not node.children:
         return node.value, [node.value]
 
@@ -18,7 +17,7 @@ def alpha_beta(node, depth, alpha, beta, is_maximizing):
                 best_path = [node.value] + path
             alpha = max(alpha, best_val)
             if beta <= alpha:
-                break  # Prune!
+                break
         return best_val, best_path
     else:
         best_val = float("inf")
@@ -30,10 +29,9 @@ def alpha_beta(node, depth, alpha, beta, is_maximizing):
                 best_path = [node.value] + path
             beta = min(beta, best_val)
             if beta <= alpha:
-                break  # Prune!
+                break
         return best_val, best_path
 
-# Tree with leaf values: 3, 5, 6, 9, 1, 2, 0, -1
 game_tree = TreeNode(0, [
     TreeNode(1, [
         TreeNode(3, [TreeNode(3), TreeNode(5)]),

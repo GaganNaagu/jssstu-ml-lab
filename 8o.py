@@ -11,10 +11,8 @@ def kmeans(X, K, max_iters=100):
     euc_dist = np.linalg.norm(expanded_x - centroids, axis=2)
     labels = np.argmin(euc_dist, axis=1)
 
-    # Update the centroids based on the assigned points
     new_centroids = np.array([X[labels == k].mean(axis=0) for k in range(K)])
 
-    # If the centroids did not change, stop iterating
     if np.all(centroids == new_centroids):
       break
 

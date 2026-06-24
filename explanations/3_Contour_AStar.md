@@ -81,3 +81,7 @@ Total Cost: 9
 *   `pq = PriorityQueue()`: A* uses a Priority Queue so it can always expand the most promising path first.
 *   `new_cost = g_cost + cost`: This calculates the exact distance traveled from the start node to the current neighbor (`g`).
 *   `pq.put((new_cost + heuristic[neighbor], ...))`: The priority is the `f_score`, which is the sum of `g` (actual cost so far) + `h` (heuristic estimate to the goal). The node with the lowest `f_score` is explored first.
+
+
+### Important Notes
+- In A* search (3b.py), the priority queue stores tuples in the format: (Cost, current_node, path).

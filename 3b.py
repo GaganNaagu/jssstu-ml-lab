@@ -3,25 +3,24 @@ from queue import PriorityQueue
 def a_star_search(graph, start, goal, heuristic):
     visited = set()
     pq = PriorityQueue()
-    # Cost, current_node, path
     pq.put((0 + heuristic[start], 0, start, [start]))
-    
+
     while not pq.empty():
         _, g_cost, current, path = pq.get()
-        
+
         if current in visited:
             continue
-            
+
         visited.add(current)
-        
+
         if current == goal:
             return path, g_cost
-            
+
         for neighbor, cost in graph.get(current, []):
             if neighbor not in visited:
                 new_cost = g_cost + cost
                 pq.put((new_cost + heuristic[neighbor], new_cost, neighbor, path + [neighbor]))
-                
+
     return None, float('inf')
 
 graph = {

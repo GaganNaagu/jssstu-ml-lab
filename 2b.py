@@ -4,30 +4,29 @@ def best_first_search(graph, start, goal, heuristic):
     visited = set()
     pq = PriorityQueue()
     pq.put((heuristic[start], start))
-    
+
     path = []
-    
+
     while not pq.empty():
         _, current = pq.get()
-        
+
         if current in visited:
             continue
-            
+
         path.append(current)
         visited.add(current)
-        
+
         if current == goal:
             print("Goal Reached!")
             return path
-            
+
         for neighbor, cost in graph[current]:
             if neighbor not in visited:
                 pq.put((heuristic[neighbor], neighbor))
-                
+
     print("Goal not found.")
     return path
 
-# Example graph and heuristic
 graph = {
     'S': [('A', 1), ('B', 2)],
     'A': [('C', 1), ('D', 2)],
