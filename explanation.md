@@ -12,8 +12,8 @@
 
 ### Output
 ```text
-Starting state: 5.1012
-Local maximum found at x = 2.0012
+Starting state: 9.9008
+Local maximum found at x = 2.0008
 Objective value: 4.0000
 ```
 
