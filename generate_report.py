@@ -3,14 +3,15 @@ import re
 import subprocess
 import glob
 
-# Collect all Python files except this one
+# Collect md files
+md_files = glob.glob("explanations/*.md")
+
+# Collect python scripts
 scripts = glob.glob("*.py")
-scripts = [s for s in scripts if s not in ("generate_report.py", "runner.py") and not s.startswith("temp_")]
-# Sort numerically and alphabetically
+scripts = [s for s in scripts if s not in ("generate_report.py", "add_code_breakdowns.py") and not s.startswith("temp_")]
 scripts.sort(key=lambda x: (int(re.search(r'\d+', x).group()) if re.search(r'\d+', x) else 999, x))
 
 os.makedirs('outputs', exist_ok=True)
-md_content = "# Machine Learning Lab Explanations\n\n"
 
 for script in scripts:
     print(f"Processing {script}...")
@@ -19,43 +20,58 @@ for script in scripts:
     
     # Patch plt.show()
     image_path = f"outputs/{script.replace('.py', '.png')}"
-    
-    # Replace all variations of plt.show()
     code = re.sub(r'plt\.show\(\)', f"plt.savefig('{image_path}')\nplt.close()", code)
     
-    # Write to a temp file
     temp_script = f"temp_{script}"
     with open(temp_script, 'w', encoding='utf-8') as f:
         f.write(code)
     
     try:
-        # We need to set the working directory to the same one as the original scripts
         result = subprocess.run(["python", temp_script], capture_output=True, text=True, timeout=60)
-        output = result.stdout
-        error = result.stderr
+        output = result.stdout.strip()
+        error = result.stderr.strip()
         
-        md_content += f"## `{script}`\n\n"
-        if output.strip() or error.strip():
-            md_content += "### Output\n"
-            if output.strip():
-                md_content += f"```text\n{output.strip()}\n```\n\n"
-            if error.strip():
-                md_content += f"**Errors/Warnings:**\n```text\n{error.strip()}\n```\n\n"
+        new_text = output
+        if error:
+            new_text += ("\n\nErrors/Warnings:\n" if output else "Errors/Warnings:\n") + error
+        if not new_text:
+            new_text = "*No output printed to console.*"
+
+        # Escape backslashes for regex replacement
+        new_text = new_text.replace('\\', '\\\\')
+
+        # Find markdown file
+        if script == '8o.py':
+            script_prefix = '8o'
         else:
-            md_content += "### Output\n*No output printed to console.*\n\n"
-        
-        # Check if plot was generated
-        if os.path.exists(image_path):
-            md_content += "### Graph\n"
-            # Adjust path to be relative for markdown
-            rel_image_path = image_path.replace('\\', '/')
-            md_content += f"![{script}]({rel_image_path})\n\n"
+            script_prefix = re.search(r'^\d+', script).group()
             
-    except subprocess.TimeoutExpired:
-        md_content += f"## `{script}`\n\nFailed to run {script}: Execution timed out after 60 seconds\n\n"
-    except Exception as e:
-        md_content += f"## `{script}`\n\nFailed to run {script}: {str(e)}\n\n"
+        target_md = next((md for md in md_files if os.path.basename(md).startswith(script_prefix + "_")), None)
         
+        if target_md:
+            with open(target_md, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Split by sections
+            sections = re.split(r'(?=### )', content)
+            
+            for i, section in enumerate(sections):
+                if section.startswith(f"### {script}"):
+                    # Look for the Output block in this section
+                    out_pattern = r'(\*\*Output:\*\*\s*\n```(?:text)?\n).*?(?=\n```)'
+                    if re.search(out_pattern, section, re.DOTALL):
+                        sections[i] = re.sub(out_pattern, rf'\g<1>{new_text}', section, flags=re.DOTALL)
+                        print(f"  -> Updated text output in {target_md}")
+                    break
+            
+            # Join and write back
+            with open(target_md, 'w', encoding='utf-8') as f:
+                f.write("".join(sections))
+                
+    except subprocess.TimeoutExpired:
+        print(f"Timeout running {script}")
+    except Exception as e:
+        print(f"Error running {script}: {e}")
     finally:
         if os.path.exists(temp_script):
             try:
@@ -63,7 +79,4 @@ for script in scripts:
             except:
                 pass
 
-with open('explanation.md', 'w', encoding='utf-8') as f:
-    f.write(md_content)
-
-print("Done generating explanation.md")
+print("Done updating dynamic outputs.")

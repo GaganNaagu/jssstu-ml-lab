@@ -57,7 +57,8 @@ The algorithm assumes both players are playing perfectly.
 ### 4b.py: Min-Max Algorithm
 **Output:**
 ```text
-The optimal value is: 12
+Optimal value: 3
+Optimal path: [0, 1, 3]
 ```
 **Interpretation:** The algorithm evaluates a game tree assuming both players play perfectly. It determined that if the Maximizing player makes the best possible moves, they are guaranteed to secure a score of at least 12, regardless of what the Minimizing opponent does.
 

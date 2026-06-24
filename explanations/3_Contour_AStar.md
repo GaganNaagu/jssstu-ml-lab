@@ -63,7 +63,7 @@ $$f(n) = g(n) + h(n)$$
 **Output:**
 ```text
 A* Path: ['S', 'A', 'C', 'G']
-Total Cost: 9
+Total Cost: 6
 ```
 **Interpretation:** A* search smartly uses heuristics (estimated distance to goal) to find the absolute best path. The output confirms the shortest path found is S -> A -> C -> G, and tells us the total accumulated cost (distance/effort) to travel that path is 9.
 

@@ -31,19 +31,17 @@ In this program, we train the Perceptron to act like a computer microchip.
 ### 11.py: Perceptron Logic Gates
 **Output:**
 ```text
-AND Function Predictions:
-[0 0] -> 0
-[0 1] -> 0
-[1 0] -> 0
-[1 1] -> 1
+AND Gate
+Input: [0 0] -> Output: 0
+Input: [0 1] -> Output: 0
+Input: [1 0] -> Output: 0
+Input: [1 1] -> Output: 1
 
------------------------
-
-OR Function Predictions:
-[0 0] -> 0
-[0 1] -> 1
-[1 0] -> 1
-[1 1] -> 1
+OR Gate
+Input: [0 0] -> Output: 0
+Input: [0 1] -> Output: 1
+Input: [1 0] -> Output: 1
+Input: [1 1] -> Output: 1
 ```
 
 **How to understand this output:**

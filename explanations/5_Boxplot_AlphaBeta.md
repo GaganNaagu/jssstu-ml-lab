@@ -57,6 +57,7 @@ It maintains two values as it explores the tree:
 **Output:**
 ```text
 The optimal value is: 5
+The optimal path taken is: [0, 1, 3, 5]
 ```
 **Interpretation:** Similar to the Min-Max output, this shows the guaranteed best score for the Maximizer. However, by using alpha-beta pruning, the algorithm skipped evaluating large chunks of the game tree that were proven to be irrelevant, arriving at the answer much faster.
 

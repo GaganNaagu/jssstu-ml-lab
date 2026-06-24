@@ -33,8 +33,13 @@ How do you measure the distance between two clusters if they both contain multip
 ### 9.py: Agglomerative Clustering
 **Output:**
 ```text
-Single Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
-Complete Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
+Proximity Matrix:
+ [[0.   0.54 0.51 0.65 0.14 0.62]
+ [0.54 0.   0.3  0.33 0.61 1.09]
+ [0.51 0.3  0.   0.24 0.51 1.09]
+ [0.65 0.33 0.24 0.   0.65 1.17]
+ [0.14 0.61 0.51 0.65 0.   0.62]
+ [0.62 1.09 1.09 1.17 0.62 0.  ]]
 ```
 
 **Graph:**
