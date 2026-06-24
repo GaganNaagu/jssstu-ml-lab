@@ -1,18 +1,38 @@
-import math
+class TreeNode:
+    def __init__(self, value, children=None):
+        self.value = value
+        self.children = children if children else []
 
-def minimax(depth, nodeIndex, isMax, scores, h):
-    if depth == h:
-        return scores[nodeIndex]
-    
-    if isMax:
-        return max(minimax(depth + 1, nodeIndex * 2, False, scores, h),
-                   minimax(depth + 1, nodeIndex * 2 + 1, False, scores, h))
+def minimax(node, depth, maximizing_player):
+    if depth == 0 or not node.children:
+        return node.value, [node.value]
+
+    if maximizing_player:
+        max_value = float("-inf")
+        max_path = []
+        for child_node in node.children:
+            child_value, child_path = minimax(child_node, depth - 1, False)
+            if child_value > max_value:
+                max_value = child_value
+                max_path = [node.value] + child_path
+        return max_value, max_path
     else:
-        return min(minimax(depth + 1, nodeIndex * 2, True, scores, h),
-                   minimax(depth + 1, nodeIndex * 2 + 1, True, scores, h))
+        min_value = float("inf")
+        min_path = []
+        for child_node in node.children:
+            child_value, child_path = minimax(child_node, depth - 1, True)
+            if child_value < min_value:
+                min_value = child_value
+                min_path = [node.value] + child_path
+        return min_value, min_path
 
-scores = [3, 5, 2, 9, 12, 5, 23, 23]
-treeDepth = int(math.log(len(scores), 2))
+# Example tree structure
+game_tree = TreeNode(0, [
+    TreeNode(1, [TreeNode(3), TreeNode(12)]),
+    TreeNode(4, [TreeNode(8), TreeNode(2)])
+])
 
-optimal_value = minimax(0, 0, True, scores, treeDepth)
-print("The optimal value is:", optimal_value)
+optimal_value, optimal_path = minimax(game_tree, 2, True)
+
+print("Optimal value:", optimal_value)
+print("Optimal path:", optimal_path)

@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: 5.0243
-Local maximum found at x = 2.0243
-Objective value: 3.9994
+Starting state: 1.1744
+Local maximum found at x = 1.9744
+Objective value: 3.9993
 ```
 
 ## `2a.py`
@@ -61,7 +61,8 @@ Total Cost: 6
 
 ### Output
 ```text
-The optimal value is: 12
+Optimal value: 3
+Optimal path: [0, 1, 3]
 ```
 
 ## `5a.py`
@@ -140,9 +141,6 @@ Proximity Matrix (Euclidean Distance):
 3  0.65  0.33  0.24  0.00  0.65  1.17
 4  0.14  0.61  0.51  0.65  0.00  0.62
 5  0.62  1.09  1.09  1.17  0.62  0.00
-
-Single Linkage Labels: [2 0 0 0 2 1]
-Complete Linkage Labels: [1 0 0 0 1 2]
 ```
 
 ### Graph
