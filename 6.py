@@ -9,7 +9,7 @@ titanic['sex'] = titanic['sex'].map({'male': 0, 'female': 1})
 X = titanic.drop('survived', axis=1)
 y = titanic['survived']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 model = GaussianNB()
 model.fit(X_train, y_train)
