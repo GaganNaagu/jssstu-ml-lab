@@ -1,48 +1,41 @@
 import numpy as np
 
-class Perceptron:
-    def __init__(self, input_size, learning_rate=0.1, epochs=100):
-        self.weights = np.zeros(input_size + 1) # +1 for bias
-        self.learning_rate = learning_rate
-        self.epochs = epochs
+def train_perceptron(X, y, epochs=10, lr=0.1):
+    weights = np.zeros(X.shape[1])
+    bias = 0
+    
+    for _ in range(epochs):
+        for i in range(len(X)):
+            # Step 1: Calculate prediction (1 if w*x + b >= 0 else 0)
+            y_hat = 1 if np.dot(X[i], weights) + bias >= 0 else 0
+            
+            # Step 2: Update weights and bias based on error
+            error = y[i] - y_hat
+            weights += lr * error * X[i]
+            bias += lr * error
+            
+    return weights, bias
 
-    def activation(self, x):
-        return 1 if x >= 0 else 0
+def predict(X, weights, bias):
+    return [1 if np.dot(x, weights) + bias >= 0 else 0 for x in X]
 
-    def predict(self, x):
-        z = self.weights.T.dot(np.insert(x, 0, 1)) # insert 1 for bias
-        return self.activation(z)
+# Dataset
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 
-    def train(self, X, y):
-        for _ in range(self.epochs):
-            for i in range(y.shape[0]):
-                x_i = np.insert(X[i], 0, 1)
-                y_hat = self.activation(self.weights.T.dot(x_i))
-                self.weights = self.weights + self.learning_rate * (y[i] - y_hat) * x_i
-
-X = np.array([
-    [0, 0],
-    [0, 1],
-    [1, 0],
-    [1, 1]
-])
-
-# AND function
+# 1. AND Function
 y_and = np.array([0, 0, 0, 1])
-perceptron_and = Perceptron(input_size=2)
-perceptron_and.train(X, y_and)
+w_and, b_and = train_perceptron(X, y_and)
 
 print("AND Function Predictions:")
-for x in X:
-    print(f"{x} -> {perceptron_and.predict(x)}")
-    
+for x, p in zip(X, predict(X, w_and, b_and)):
+    print(f"{x} -> {p}")
+
 print("\n-----------------------\n")
 
-# OR function
+# 2. OR Function
 y_or = np.array([0, 1, 1, 1])
-perceptron_or = Perceptron(input_size=2)
-perceptron_or.train(X, y_or)
+w_or, b_or = train_perceptron(X, y_or)
 
 print("OR Function Predictions:")
-for x in X:
-    print(f"{x} -> {perceptron_or.predict(x)}")
+for x, p in zip(X, predict(X, w_or, b_or)):
+    print(f"{x} -> {p}")
