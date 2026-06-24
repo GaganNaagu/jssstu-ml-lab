@@ -53,8 +53,9 @@ A **3D Surface Plot** visualizes the relationship between three variables. It pl
 ### 2b.py: BFS Algorithm
 **Output:**
 ```text
-Goal Reached!
+Goal Reached with total cost: 4
 Path traversed: ['S', 'A', 'D', 'G']
+Total Cost: 4
 ```
 **Interpretation:** The output shows the exact sequence of nodes visited by the Best-First Search (Greedy) algorithm to reach the Goal ('G') from the Start ('S'). It uses a heuristic to actively guess which path is closest to the goal, leading to a fast, though not necessarily optimal, route.
 
