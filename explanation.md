@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: -2.5578
-Local maximum found at x = 2.0422
-Objective value: 3.9982
+Starting state: -1.8716
+Local maximum found at x = 2.0284
+Objective value: 3.9992
 ```
 
 ## `2a.py`
@@ -159,19 +159,17 @@ Proximity Matrix (Euclidean Distance):
 
 ### Output
 ```text
-AND Function Predictions:
-[0 0] -> 0
-[0 1] -> 0
-[1 0] -> 0
-[1 1] -> 1
+AND Gate
+Input: [0 0] -> Output: 0
+Input: [0 1] -> Output: 0
+Input: [1 0] -> Output: 0
+Input: [1 1] -> Output: 1
 
------------------------
-
-OR Function Predictions:
-[0 0] -> 0
-[0 1] -> 1
-[1 0] -> 1
-[1 1] -> 1
+OR Gate
+Input: [0 0] -> Output: 0
+Input: [0 1] -> Output: 1
+Input: [1 0] -> Output: 1
+Input: [1 1] -> Output: 1
 ```
 
 ## `add_code_breakdowns.py`
