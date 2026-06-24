@@ -15,16 +15,15 @@ X_lda = lda.fit_transform(X, y)
 
 plt.figure(figsize=(12, 5))
 
-plt.subplot(1, 2, 1)
-for c, i, target_name in zip(['r', 'g', 'b'], [0, 1, 2], iris.target_names):
-    plt.scatter(X_pca[y == i, 0], X_pca[y == i, 1], c=c, label=target_name)
-plt.title('PCA of Iris dataset')
-plt.legend()
+# Helper function to modularize the repetitive plotting
+def plot_scatter(data, title, position):
+    plt.subplot(1, 2, position)
+    for c, i, target_name in zip(['r', 'g', 'b'], [0, 1, 2], iris.target_names):
+        plt.scatter(data[y == i, 0], data[y == i, 1], c=c, label=target_name)
+    plt.title(title)
+    plt.legend()
 
-plt.subplot(1, 2, 2)
-for c, i, target_name in zip(['r', 'g', 'b'], [0, 1, 2], iris.target_names):
-    plt.scatter(X_lda[y == i, 0], X_lda[y == i, 1], c=c, label=target_name)
-plt.title('LDA of Iris dataset')
-plt.legend()
+plot_scatter(X_pca, 'PCA of Iris dataset', 1)
+plot_scatter(X_lda, 'LDA of Iris dataset', 2)
 
 plt.show()
