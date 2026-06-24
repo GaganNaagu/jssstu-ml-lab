@@ -35,13 +35,13 @@ def alpha_beta(node, depth, alpha, beta, is_maximizing):
 
 # Tree with leaf values: 3, 5, 6, 9, 1, 2, 0, -1
 game_tree = TreeNode(0, [
-    TreeNode(0, [
-        TreeNode(0, [TreeNode(3), TreeNode(5)]),
-        TreeNode(0, [TreeNode(6), TreeNode(9)])
+    TreeNode(1, [
+        TreeNode(3, [TreeNode(3), TreeNode(5)]),
+        TreeNode(4, [TreeNode(6), TreeNode(9)])
     ]),
-    TreeNode(0, [
-        TreeNode(0, [TreeNode(1), TreeNode(2)]),
-        TreeNode(0, [TreeNode(0), TreeNode(-1)])
+    TreeNode(2, [
+        TreeNode(5, [TreeNode(1), TreeNode(2)]),
+        TreeNode(6, [TreeNode(0), TreeNode(-1)])
     ])
 ])
 

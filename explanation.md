@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: -8.8849
-Local maximum found at x = 2.0151
-Objective value: 3.9998
+Starting state: 3.8349
+Local maximum found at x = 2.0349
+Objective value: 3.9988
 ```
 
 ## `2a.py`
@@ -78,7 +78,7 @@ Optimal path: [0, 1, 3]
 ### Output
 ```text
 The optimal value is: 5
-The optimal path taken is: [0, 0, 0, 5]
+The optimal path taken is: [0, 1, 3, 5]
 ```
 
 ## `6.py`
