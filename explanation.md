@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: -0.5214
-Local maximum found at x = 1.9786
-Objective value: 3.9995
+Starting state: 5.0243
+Local maximum found at x = 2.0243
+Objective value: 3.9994
 ```
 
 ## `2a.py`
@@ -132,8 +132,17 @@ Centroids: [[5.9016129  2.7483871  4.39354839 1.43387097]
 
 ### Output
 ```text
-Single Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
-Complete Linkage Labels: [1 1 1 1 1 1 1 1 1 1]
+Proximity Matrix (Euclidean Distance):
+      0     1     2     3     4     5
+0  0.00  0.54  0.51  0.65  0.14  0.62
+1  0.54  0.00  0.30  0.33  0.61  1.09
+2  0.51  0.30  0.00  0.24  0.51  1.09
+3  0.65  0.33  0.24  0.00  0.65  1.17
+4  0.14  0.61  0.51  0.65  0.00  0.62
+5  0.62  1.09  1.09  1.17  0.62  0.00
+
+Single Linkage Labels: [2 0 0 0 2 1]
+Complete Linkage Labels: [1 0 0 0 1 2]
 ```
 
 ### Graph
