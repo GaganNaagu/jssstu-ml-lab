@@ -12,9 +12,9 @@
 
 ### Output
 ```text
-Starting state: -1.8716
-Local maximum found at x = 2.0284
-Objective value: 3.9992
+Starting state: 5.1012
+Local maximum found at x = 2.0012
+Objective value: 4.0000
 ```
 
 ## `2a.py`
@@ -86,15 +86,9 @@ The optimal path taken is: [0, 1, 3, 5]
 ### Output
 ```text
 Accuracy: 0.7674418604651163
-Classification Report:
-               precision    recall  f1-score   support
-
-           0       0.80      0.81      0.80       126
-           1       0.72      0.71      0.72        89
-
-    accuracy                           0.77       215
-   macro avg       0.76      0.76      0.76       215
-weighted avg       0.77      0.77      0.77       215
+Confusion Matrix:
+ [[102  24]
+ [ 26  63]]
 ```
 
 ## `7.py`
