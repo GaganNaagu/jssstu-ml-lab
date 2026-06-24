@@ -3,15 +3,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
-# 1. Load Data (skip the ID column, target is the last column)
+
 glass_data = pd.read_csv('glass.csv', header=None)
 X = glass_data.iloc[:, 1:-1]
 y = glass_data.iloc[:, -1]
 
-# 2. Split Data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# 3. Helper function for KNN
 def evaluate_knn(metric_type):
     knn = KNeighborsClassifier(n_neighbors=3, metric=metric_type)
     knn.fit(X_train, y_train)
