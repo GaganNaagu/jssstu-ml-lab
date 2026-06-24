@@ -65,10 +65,10 @@ The optimal value is: 5
 ## Deep Dive Code Breakdown
 
 ### 5a.py: Box Plot Variables
-*   `sns.boxplot(x='species', y='sepal_length', data=df, palette='Set2')`:
-    *   `data=df`: Tells Seaborn to pull variables directly from a Pandas DataFrame.
-    *   `palette='Set2'`: A predefined set of aesthetic pastel colors. Other palettes include `'pastel'`, `'muted'`, `'deep'`, or `'dark'`.
-    *   *Note on the "candles":* Unlike financial candlestick charts (which show Open, High, Low, Close over time), a boxplot shows purely statistical spread (25th percentile, Median, 75th percentile).
+*   `plt.boxplot(data, vert=True, patch_artist=True, tick_labels=iris.feature_names)`:
+    *   `vert=True`: Draws the boxes vertically rather than horizontally.
+    *   `patch_artist=True`: Tells matplotlib to fill the boxes with color, rather than just drawing hollow outlines.
+    *   `tick_labels=iris.feature_names`: Assigns the proper names of the features (like 'sepal length (cm)') to the bottom X-axis.
 
 ### 5b.py: Alpha-Beta Variables
 *   `alpha`: Passed down the recursive tree. It keeps track of the absolute highest score the Maximizer has secured so far along the current path.

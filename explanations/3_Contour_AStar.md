@@ -72,11 +72,12 @@ Total Cost: 9
 ## Deep Dive Code Breakdown
 
 ### 3a.py: Contour Plot Variables
-*   `plt.contourf(X, Y, Z, levels=50, cmap='inferno')`: 
-    *   `contourf`: The 'f' stands for fill. It draws contour lines and fills the gaps between them with solid color.
-    *   `levels=50`: Tells the plot to draw 50 distinct color bands (elevation levels). The higher this number, the smoother the gradient looks.
-    *   `cmap='inferno'`: A color map that goes from black/dark purple to glowing white/yellow, making the "hot" peaks stand out clearly.
+*   `plt.tricontourf(X[:, 0], X[:, 1], X[:, 2], levels=14, cmap='viridis')`: 
+    *   `tricontourf`: Similar to `plot_trisurf`, this creates a filled contour plot from unstructured data by calculating triangles between the points.
+    *   `levels=14`: Tells the plot to draw 14 distinct color bands (elevation levels).
+    *   `cmap='viridis'`: Maps the Z-values to a color scale ranging from dark purple (low) to yellow (high).
 
 ### 3b.py: A* Search Variables
-*   `heapq.heappush(open_list, (f_score, start))`: A* doesn't use a normal list or queue; it uses a **Priority Queue** (min-heap). `heapq` automatically sorts the queue every time you add an item. 
-*   `f_score`: This is the priority weight. It's the sum of `g` (actual cost from start to current) + `h` (estimated cost from current to goal). The Priority Queue always pops the node with the lowest `f_score` first, guaranteeing the smartest search.
+*   `pq = PriorityQueue()`: A* uses a Priority Queue so it can always expand the most promising path first.
+*   `new_cost = g_cost + cost`: This calculates the exact distance traveled from the start node to the current neighbor (`g`).
+*   `pq.put((new_cost + heuristic[neighbor], ...))`: The priority is the `f_score`, which is the sum of `g` (actual cost so far) + `h` (heuristic estimate to the goal). The node with the lowest `f_score` is explored first.

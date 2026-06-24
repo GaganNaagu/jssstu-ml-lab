@@ -25,12 +25,13 @@ def a_star_search(graph, start, goal, heuristic):
     return None, float('inf')
 
 graph = {
-    'S': [('A', 1), ('B', 4)],
-    'A': [('B', 2), ('C', 5), ('G', 12)],
-    'B': [('C', 2)],
-    'C': [('G', 3)]
+    'S': [('A', 1), ('G', 10)],
+    'A': [('B', 2), ('C', 1)],
+    'B': [('D', 5)],
+    'C': [('D', 3), ('G', 4)],
+    'D': [('G', 2)]
 }
-heuristic = { 'S': 7, 'A': 6, 'B': 2, 'C': 1, 'G': 0 }
+heuristic = { 'A': 3, 'B': 4, 'C': 2, 'D': 6, 'G': 0, 'S': 5}
 
 path, cost = a_star_search(graph, 'S', 'G', heuristic)
 print("A* Path:", path)

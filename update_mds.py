@@ -41,7 +41,7 @@ Objective value: 3.9992
 Goal Reached!
 Path traversed: ['S', 'A', 'D', 'G']
 ```
-**Interpretation:** The output shows the exact sequence of nodes visited by the Breadth-First Search algorithm to reach the Goal ('G') from the Start ('S'). BFS explores level-by-level, ensuring it finds the shortest path in terms of the number of edges.
+**Interpretation:** The output shows the exact sequence of nodes visited by the Best-First Search (Greedy) algorithm to reach the Goal ('G') from the Start ('S'). It uses a heuristic to actively guess which path is closest to the goal, leading to a fast, though not necessarily optimal, route.
 """,
 
     "3_Contour_AStar.md": """

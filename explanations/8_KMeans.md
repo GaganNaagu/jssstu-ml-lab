@@ -43,7 +43,7 @@ We feed the algorithm the Sepal Length, Sepal Width, Petal Length, and Petal Wid
 ### 8.py & 8o.py: K-Means Variables
 *   `KMeans(n_clusters=3, random_state=42)`:
     *   `n_clusters=3`: This is the 'K' in K-Means. You must hardcode how many groups you want the algorithm to divide the data into.
-*   `plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, c='red')`:
-    *   `centroids[:, 0]`: The X-coordinates of the calculated center-points of the clusters.
-    *   `marker='x'`: Changes the shape of the point from a standard dot to an 'X' so it is easily distinguished from normal data points.
+*   `plt.scatter(centers[:, 0], centers[:, 1], c='red', s=200, alpha=0.75, marker='X')`:
+    *   `centers[:, 0]`: The X-coordinates of the calculated center-points of the clusters, retrieved from `kmeans.cluster_centers_`.
+    *   `marker='X'`: Changes the shape of the point from a standard dot to a bold 'X' so it is easily distinguished from normal data points.
     *   `s=200`: Makes the 'X' massive (size 200) so it's highly visible.
