@@ -31,6 +31,8 @@ def kmeans(X, K, max_iters=100):
 X = load_iris().data
 K = 3
 labels, centroids = kmeans(X, K)
+print("Labels:", labels)
+print("Centroids:", centroids)
 
 plt.scatter(X[:, 0], X[:, 1], c=labels)
 plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', color='red', s=200)
