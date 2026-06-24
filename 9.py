@@ -1,27 +1,25 @@
-import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from scipy.cluster.hierarchy import dendrogram, linkage
-from sklearn.cluster import AgglomerativeClustering
-
-iris = load_iris()
-X = iris.data[:6]
-
 from scipy.spatial.distance import pdist, squareform
-dist_matrix = squareform(pdist(X, metric='euclidean'))
-print("Proximity Matrix (Euclidean Distance):")
-print(pd.DataFrame(dist_matrix).round(2))
-print()
 
-linked_single = linkage(X, 'single')
-linked_complete = linkage(X, 'complete')
+# Load just 6 samples for a clean dendrogram
+X = load_iris().data[:6]
 
-plt.figure(figsize=(12, 6))
+# Print distance matrix
+print("Proximity Matrix:\n", squareform(pdist(X, 'euclidean')), 2))
+
+plt.figure(figsize=(12, 5))
+
+# Single Linkage
 plt.subplot(1, 2, 1)
-dendrogram(linked_single)
-plt.title('Single-Linkage Dendrogram')
+dendrogram(linkage(X, 'single'))
+plt.title('Single-Linkage')
 
+# Complete Linkage
 plt.subplot(1, 2, 2)
-dendrogram(linked_complete)
-plt.title('Complete-Linkage Dendrogram')
+dendrogram(linkage(X, 'complete'))
+plt.title('Complete-Linkage')
+
 plt.show()
