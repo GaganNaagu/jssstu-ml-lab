@@ -3,7 +3,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
-
 glass_data = pd.read_csv('glass.csv', header=None)
 X = glass_data.iloc[:, 1:-1]
 y = glass_data.iloc[:, -1]
