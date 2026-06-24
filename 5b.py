@@ -1,32 +1,50 @@
-import math
+class TreeNode:
+    def __init__(self, value, children=None):
+        self.value = value
+        self.children = children if children else []
 
-MAX, MIN = 1000, -1000
+def alpha_beta(node, depth, alpha, beta, is_maximizing):
+    # Base case: reached max depth or a leaf node
+    if depth == 0 or not node.children:
+        return node.value, [node.value]
 
-def alpha_beta_minimax(depth, nodeIndex, maximizingPlayer, values, alpha, beta, h):
-    if depth == h:
-        return values[nodeIndex]
-    
-    if maximizingPlayer:
-        best = MIN
-        for i in range(2):
-            val = alpha_beta_minimax(depth + 1, nodeIndex * 2 + i, False, values, alpha, beta, h)
-            best = max(best, val)
-            alpha = max(alpha, best)
+    if is_maximizing:
+        best_val = float("-inf")
+        best_path = []
+        for child in node.children:
+            val, path = alpha_beta(child, depth - 1, alpha, beta, False)
+            if val > best_val:
+                best_val = val
+                best_path = [node.value] + path
+            alpha = max(alpha, best_val)
             if beta <= alpha:
-                break
-        return best
+                break  # Prune!
+        return best_val, best_path
     else:
-        best = MAX
-        for i in range(2):
-            val = alpha_beta_minimax(depth + 1, nodeIndex * 2 + i, True, values, alpha, beta, h)
-            best = min(best, val)
-            beta = min(beta, best)
+        best_val = float("inf")
+        best_path = []
+        for child in node.children:
+            val, path = alpha_beta(child, depth - 1, alpha, beta, True)
+            if val < best_val:
+                best_val = val
+                best_path = [node.value] + path
+            beta = min(beta, best_val)
             if beta <= alpha:
-                break
-        return best
+                break  # Prune!
+        return best_val, best_path
 
-values = [3, 5, 6, 9, 1, 2, 0, -1]
-h = int(math.log(len(values), 2))
+# Tree with leaf values: 3, 5, 6, 9, 1, 2, 0, -1
+game_tree = TreeNode(0, [
+    TreeNode(0, [
+        TreeNode(0, [TreeNode(3), TreeNode(5)]),
+        TreeNode(0, [TreeNode(6), TreeNode(9)])
+    ]),
+    TreeNode(0, [
+        TreeNode(0, [TreeNode(1), TreeNode(2)]),
+        TreeNode(0, [TreeNode(0), TreeNode(-1)])
+    ])
+])
 
-optimal_value = alpha_beta_minimax(0, 0, True, values, MIN, MAX, h)
+optimal_value, optimal_path = alpha_beta(game_tree, 3, float('-inf'), float('inf'), True)
 print("The optimal value is:", optimal_value)
+print("The optimal path taken is:", optimal_path)
