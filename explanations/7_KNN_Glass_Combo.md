@@ -39,7 +39,7 @@ The dataset contains columns of chemical elements (Sodium, Magnesium, Iron, Alum
 **Output:**
 ```text
 Accuracy with Euclidean distance (k=3): 0.6462
-Accuracy with Manhattan distance (k=3): 0.6462
+Accuracy with Manhattan distance (k=3): 0.6769
 ```
 
 **How to understand this output:**

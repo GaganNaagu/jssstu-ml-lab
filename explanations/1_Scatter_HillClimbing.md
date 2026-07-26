@@ -56,9 +56,9 @@ Examiners love asking about the pitfalls of Hill Climbing. Always mention these 
 ### 1b.py: Hill Climbing
 **Output:**
 ```text
-Starting state: -8.1336
-Local maximum found at x = 1.9664
-Objective value: 3.9989
+Starting state: 3.1854
+Local maximum found at x = 1.9854
+Objective value: 3.9998
 ```
 **Interpretation:** The algorithm starts at a random negative coordinate and iteratively takes steps uphill. It successfully finds the peak (local maximum) at x ≈ 2.02, where the mathematical function reaches its highest value of ≈ 3.99.
 

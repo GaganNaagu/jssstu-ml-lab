@@ -34,10 +34,10 @@ The algorithm calculates:
 ### 6.py: Naive Bayes
 **Output:**
 ```text
-Accuracy: 0.7541899441340782
+Accuracy: 0.8156424581005587
 Confusion Matrix:
- [[83 23]
- [21 52]]
+ [[94 18]
+ [15 52]]
 ```
 
 **How to understand this output:**
