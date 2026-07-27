@@ -3,6 +3,13 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.preprocessing import StandardScaler
 
+iris = load_iris()
+X = iris.data
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+K = 3
+
 def kmeans(X, K, max_iters=100):
     np.random.seed(42)
     centroids = X[:K]
@@ -20,13 +27,6 @@ def kmeans(X, K, max_iters=100):
         centroids = new_centroids
 
     return labels, centroids
-
-iris = load_iris()
-X = iris.data
-
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-K = 3
 
 labels, centroids = kmeans(X_scaled, K)
 
