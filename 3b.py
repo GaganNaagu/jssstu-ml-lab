@@ -23,15 +23,21 @@ def a_star_search(graph, start, goal, heuristic):
 
     return None, float('inf')
 
+# Simple 4-node graph for exam
 graph = {
-    'S': [('A', 1), ('G', 10)],
-    'A': [('B', 2), ('C', 1)],
-    'B': [('D', 5)],
-    'C': [('D', 3), ('G', 4)],
-    'D': [('G', 2)]
+    'A': [('B', 1), ('C', 4)],
+    'B': [('C', 2), ('Z', 10)],
+    'C': [('Z', 3)],
+    'Z': []
 }
-heuristic = { 'A': 3, 'B': 4, 'C': 2, 'D': 6, 'G': 0, 'S': 5}
 
-path, cost = a_star_search(graph, 'S', 'G', heuristic)
+heuristic = {
+    'A': 6,
+    'B': 4,
+    'C': 2,
+    'Z': 0
+}
+
+path, cost = a_star_search(graph, 'A', 'Z', heuristic)
 print("A* Path:", path)
 print("Total Cost:", cost)

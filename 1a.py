@@ -6,13 +6,10 @@ X = iris.data
 y = iris.target
 
 
-scatter = plt.scatter(X[:, 0], X[:, 1], c=y, cmap='viridis', s=50, alpha=0.8)
+scatter = plt.scatter(X[:, 0], X[:, 1], c=y)
 
 plt.title('Scatter Plot of Iris Data (Sepal Length vs Sepal Width)')
 plt.xlabel(iris.feature_names[0])
 plt.ylabel(iris.feature_names[1])
-
-handles, _ = scatter.legend_elements()
-plt.legend(handles, iris.target_names, title="Classes")
 
 plt.show()

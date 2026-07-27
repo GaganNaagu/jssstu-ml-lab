@@ -28,15 +28,21 @@ def best_first_search(graph, start, goal, heuristic):
     print("Goal not found.")
     return path, 0
 
+# Simple 4-node graph for exam
 graph = {
-    'S': [('A', 1), ('B', 2)],
-    'A': [('C', 1), ('D', 2)],
-    'B': [('E', 1), ('F', 2)],
-    'C': [], 'D': [('G', 1)],
-    'E': [], 'F': [], 'G': []
+    'A': [('B', 1), ('C', 4)],
+    'B': [('C', 2), ('Z', 10)],
+    'C': [('Z', 3)],
+    'Z': []
 }
-heuristic = { 'S': 5, 'A': 3, 'B': 4, 'C': 2, 'D': 1, 'E': 4, 'F': 5, 'G': 0 }
 
-path, total_cost = best_first_search(graph, 'S', 'G', heuristic)
+heuristic = {
+    'A': 6,
+    'B': 4,
+    'C': 2,
+    'Z': 0
+}
+
+path, total_cost = best_first_search(graph, 'A', 'Z', heuristic)
 print(f"Path traversed: {path}")
 print(f"Total Cost: {total_cost}")

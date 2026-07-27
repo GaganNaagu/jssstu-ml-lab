@@ -1,34 +1,34 @@
 class TreeNode:
     def __init__(self, value, children=None):
         self.value = value
-        self.children = children if children else []
+        self.children = children or []
 
-def minimax(node, depth, maximizing_player):
+def minimax(node, depth, is_maximizing):
     if depth == 0 or not node.children:
         return node.value, [node.value]
 
-    if maximizing_player:
-        max_value = float("-inf")
-        max_path = []
-        for child_node in node.children:
-            child_value, child_path = minimax(child_node, depth - 1, False)
-            if child_value > max_value:
-                max_value = child_value
-                max_path = [node.value] + child_path
-        return max_value, max_path
+    if is_maximizing:
+        best_val = float("-inf")
+        best_path = []
+        for child in node.children:
+            val, path = minimax(child, depth - 1, False)
+            if val > best_val:
+                best_val = val
+                best_path = [node.value] + path
+        return best_val, best_path
     else:
-        min_value = float("inf")
-        min_path = []
-        for child_node in node.children:
-            child_value, child_path = minimax(child_node, depth - 1, True)
-            if child_value < min_value:
-                min_value = child_value
-                min_path = [node.value] + child_path
-        return min_value, min_path
+        best_val = float("inf")
+        best_path = []
+        for child in node.children:
+            val, path = minimax(child, depth - 1, True)
+            if val < best_val:
+                best_val = val
+                best_path = [node.value] + path
+        return best_val, best_path
 
 game_tree = TreeNode(0, [
-    TreeNode(1, [TreeNode(3), TreeNode(12)]),
-    TreeNode(4, [TreeNode(8), TreeNode(2)])
+    TreeNode(1, [TreeNode(3), TreeNode(5)]),
+    TreeNode(2, [TreeNode(2), TreeNode(9)])
 ])
 
 optimal_value, optimal_path = minimax(game_tree, 2, True)

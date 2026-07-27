@@ -7,7 +7,7 @@ iris = load_iris()
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
 
 
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
 
 plt.title('Heat-map of Iris Data Correlation')
 plt.show()

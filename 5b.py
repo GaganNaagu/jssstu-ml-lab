@@ -1,7 +1,7 @@
 class TreeNode:
     def __init__(self, value, children=None):
         self.value = value
-        self.children = children if children else []
+        self.children = children or []
 
 def alpha_beta(node, depth, alpha, beta, is_maximizing):
     if depth == 0 or not node.children:
@@ -33,16 +33,11 @@ def alpha_beta(node, depth, alpha, beta, is_maximizing):
         return best_val, best_path
 
 game_tree = TreeNode(0, [
-    TreeNode(1, [
-        TreeNode(3, [TreeNode(3), TreeNode(5)]),
-        TreeNode(4, [TreeNode(6), TreeNode(9)])
-    ]),
-    TreeNode(2, [
-        TreeNode(5, [TreeNode(1), TreeNode(2)]),
-        TreeNode(6, [TreeNode(0), TreeNode(-1)])
-    ])
+    TreeNode(1, [TreeNode(3), TreeNode(5)]),
+    TreeNode(2, [TreeNode(2), TreeNode(9)])
 ])
 
-optimal_value, optimal_path = alpha_beta(game_tree, 3, float('-inf'), float('inf'), True)
-print("The optimal value is:", optimal_value)
-print("The optimal path taken is:", optimal_path)
+optimal_value, optimal_path = alpha_beta(game_tree, 2, float('-inf'), float('inf'), True)
+
+print("Optimal value:", optimal_value)
+print("Optimal path:", optimal_path)
