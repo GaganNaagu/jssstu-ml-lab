@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 
 glass_data = pd.read_csv('glass.csv')
+
 X = glass_data.drop('Type', axis=1)
 y = glass_data['Type']
 

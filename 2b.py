@@ -3,7 +3,7 @@ from queue import PriorityQueue
 def best_first_search(graph, start, goal, heuristic):
     visited = set()
     pq = PriorityQueue()
-    # Queue stores: (heuristic, node, accumulated_cost)
+
     pq.put((heuristic[start], start, 0))
 
     path = []
@@ -28,7 +28,6 @@ def best_first_search(graph, start, goal, heuristic):
     print("Goal not found.")
     return path, 0
 
-# Simple 4-node graph for exam
 graph = {
     'A': [('B', 1), ('C', 4)],
     'B': [('C', 2), ('Z', 10)],

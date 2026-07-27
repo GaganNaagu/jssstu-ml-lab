@@ -33,6 +33,7 @@ class KNNScratch:
         return most_common[0][0]
 
 glass_data = pd.read_csv('glass.csv')
+
 X = glass_data.drop('Type', axis=1)
 y = glass_data['Type']
 
