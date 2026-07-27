@@ -1,8 +1,11 @@
+import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
+from sklearn.preprocessing import StandardScaler
+
 from sklearn.decomposition import PCA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-from sklearn.preprocessing import StandardScaler
-import matplotlib.pyplot as plt
+
+
 
 iris = load_iris()
 X = iris.data

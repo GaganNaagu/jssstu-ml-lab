@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 from sklearn.datasets import load_iris
 from sklearn.preprocessing import StandardScaler
+
+from sklearn.cluster import KMeans
 
 iris = load_iris()
 X = iris.data

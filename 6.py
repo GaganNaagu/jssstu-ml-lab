@@ -1,8 +1,10 @@
 import seaborn as sns
+
 from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.preprocessing import StandardScaler
+
+from sklearn.naive_bayes import GaussianNB
 
 titanic = sns.load_dataset('titanic')[['survived', 'pclass', 'sex', 'age', 'fare']].dropna()
 titanic['sex'] = titanic['sex'].map({'male': 0, 'female': 1})
