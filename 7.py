@@ -8,8 +8,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 
 glass_data = pd.read_csv('glass.csv')
-X = glass_data.drop('Type', axis=1).values
-y = glass_data['Type'].values
+X = glass_data.drop('Type', axis=1)
+y = glass_data['Type']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
